@@ -1,0 +1,655 @@
+/* Smartphones (600px para baixo) */
+@media only screen and (max-width: 449px) {
+    * {
+
+        box-sizing: border-box;
+
+    }
+
+    body {
+
+        margin: 0;
+        background-color: rgba(246, 202, 199, 1);
+
+    }
+
+    .top-site {
+
+        display: flex;
+        width: 100%;
+        flex-flow: row wrap;
+        background-color: rgba(246, 202, 199, 1);
+        height: 5vh;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .discount {
+
+        flex: 33%;
+        text-align: center;
+
+    }
+
+    .discount h2 {
+
+        font-size: 9px;
+        color: white;
+
+    }
+
+    .header-texts {
+
+        flex: 33%;
+        text-align: center;
+        margin-bottom: 8px;
+
+    }
+
+    .header-texts a {
+        text-decoration: none;
+        color: white;
+        font-size: 10px;
+        padding: 5px;
+        margin-left: 6px;
+        border-bottom: 1px solid white;
+
+    }
+
+    .header-texts a:hover {
+
+        text-decoration: none;
+        color: rgba(167, 185, 153, 1);
+        padding: 5px;
+        margin-left: 6px;
+        border-bottom: 1px solid rgba(167, 185, 153, 1);
+
+    }
+
+    .header-icons {
+
+        flex: 33%;
+        text-align: center;
+
+    }
+
+    .button-midias {
+
+        background-color: rgba(246, 202, 199, 1);
+        width: 20%;
+        margin-left: 7%;
+        cursor: pointer;
+        border: none;
+        padding: 0 0;
+
+    }
+
+    .header-icons img {
+
+        width: 90%;
+
+    }
+
+    .mid-site {
+
+        display: flex;
+        width: 100%;
+        flex-flow: row wrap;
+        background-color: rgb(255, 255, 255);
+        height: 10vh;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .search-left {
+
+        width: 20%;
+        height: auto;
+
+
+    }
+
+    .logo {
+
+        width: 60%;
+        text-align: center;
+        height: auto;
+
+    }
+
+    .logo img {
+
+        margin-top: 15px;
+        max-width: 160px;
+
+    }
+
+    .search-right {
+
+        width: 20%;
+        height: auto;
+
+    }
+
+    .text-about-store {
+
+        display: flex;
+        width: 100%;
+        flex-flow: row wrap;
+        background-color: rgba(167, 185, 153, 1);
+        height: 7vh;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .text-store-left {
+
+        width: 20%;
+        height: auto;
+
+    }
+
+    .text-store {
+
+        width: 60%;
+        text-align: center;
+
+    }
+
+    .text-store h1 {
+
+        font-size: 40px;
+        margin-top: 6px;
+        color: white;
+
+    }
+
+    .text-store-right {
+
+        width: 20%;
+        height: auto;
+
+    }
+
+    .icons-filter {
+
+        display: flex;
+        width: 100%;
+        height: 8vh;
+        flex-flow: row wrap;
+        background-color: rgba(246, 202, 199, 1);
+        justify-content: end;
+        align-items: end;
+
+    }
+
+    .filter.left {
+
+        width: 15%;
+        margin-left: 5%;
+
+    }
+
+    .filter-center {
+        width: 60%;
+        padding-bottom: 2%;
+    }
+
+    .filter-center img {
+
+        width: 90%;
+        text-align: center;
+        margin-left: 8%;
+    }
+
+    .filter-right {
+
+        width: 15%;
+        margin-right: 5%;
+        margin-bottom: 0%;
+
+    }
+
+    .button-filter {
+
+        padding: 0px 0px;
+        text-align: end;
+        border: none;
+        cursor: pointer;
+        background-color: rgba(246, 202, 199, 1);
+
+    }
+
+    .button-filter img {
+
+        width: 70%;
+
+    }
+
+    .first-cards {
+
+        display: flex;
+        width: 100%;
+        height: 40vh;
+        flex-flow: row wrap;
+        background-color: rgba(246, 202, 199, 1);
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .cardContent {
+
+        display: block;
+        width: 42vw;
+        line-height: 0.1;
+        height: 40vh;
+        text-align: center;
+
+    }
+
+    .divisao {
+
+        width: 20px;
+        text-align: center;
+
+    }
+
+    .image {
+
+        width: 100%;
+        margin-bottom: 6px;
+
+
+    }
+
+    .cardContent h2 {
+
+        text-align: left;
+        font-size: 15px;
+        color: white;
+
+    }
+
+    .second-text-description {
+
+        text-align: left;
+        font-size: 10px;
+        opacity: 0.7;
+        margin-bottom: 0%;
+
+    }
+
+
+    .full-price {
+        text-align: left;
+        color: white;
+        font-size: 25px;
+        margin-bottom: 10%;
+
+    }
+
+    .parceled-price {
+
+        text-align: left;
+        margin-bottom: 10%;
+        font-size: 10px;
+
+    }
+
+    .buttom-cards {
+
+        float: left;
+        background-color: rgba(167, 185, 153, 1);
+        padding: 2px 78px;
+        cursor: pointer;
+
+    }
+
+    .buttom-cards img {
+
+        width: auto;
+        height: 12px;
+
+    }
+
+}
+
+/* Dispositivos um pouco maiores, mas ainda pequenos (Pequenos Tablets e Smartphones + largos, 600px para cima) */
+@media only screen and (min-width: 450px) and (max-width: 650px) {
+
+    * {
+
+        box-sizing: border-box;
+
+    }
+
+    body {
+
+        margin: 0;
+        background-color: rgba(246, 202, 199, 1);
+
+    }
+
+    .top-site {
+
+        display: flex;
+        width: 100%;
+        flex-flow: row wrap;
+        background-color: rgba(246, 202, 199, 1);
+        height: 6vh;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .discount {
+
+        flex: 33%;
+        text-align: center;
+
+    }
+
+    .discount h2 {
+
+        font-size: 14px;
+        color: white;
+
+    }
+
+    .header-texts {
+
+        flex: 33%;
+        text-align: center;
+        margin-bottom: 8px;
+
+    }
+
+    .header-texts a {
+        text-decoration: none;
+        color: white;
+        font-size: 12px;
+        padding: 5px;
+        margin-left: 6px;
+        border-bottom: 1px solid white;
+
+    }
+
+    .header-texts a:hover {
+
+        text-decoration: none;
+        color: rgba(167, 185, 153, 1);
+        padding: 5px;
+        margin-left: 6px;
+        border-bottom: 1px solid rgba(167, 185, 153, 1);
+
+    }
+
+    .header-icons {
+
+        flex: 33%;
+        text-align: center;
+
+    }
+
+    .button-midias {
+
+        background-color: rgba(246, 202, 199, 1);
+        width: 20%;
+        margin-left: 7%;
+        cursor: pointer;
+        border: none;
+        padding: 0 0;
+
+    }
+
+    .header-icons img {
+
+        width: 70%;
+
+    }
+
+    .mid-site {
+
+        display: flex;
+        width: 100%;
+        flex-flow: row wrap;
+        background-color: rgb(255, 255, 255);
+        height: 12vh;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .search-left {
+
+        width: 20%;
+        height: auto;
+
+
+    }
+
+    .logo {
+
+        width: 60%;
+        text-align: center;
+        height: auto;
+
+    }
+
+    .logo img {
+
+        margin-top: 5%;
+        max-width: 62%;
+
+    }
+
+    .search-right {
+
+        width: 20%;
+        height: auto;
+
+    }
+
+    .text-about-store {
+
+        display: flex;
+        width: 100%;
+        flex-flow: row wrap;
+        background-color: rgba(167, 185, 153, 1);
+        height: 7vh;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .text-store-left {
+
+        width: 20%;
+        height: auto;
+
+    }
+
+    .text-store {
+
+        width: 60%;
+        text-align: center;
+
+    }
+
+    .text-store h1 {
+
+        font-size: 40px;
+        margin-top: 6px;
+        color: white;
+
+    }
+
+    .text-store-right {
+
+        width: 20%;
+        height: auto;
+
+    }
+
+    .icons-filter {
+
+        display: flex;
+        width: 100%;
+        height: 8vh;
+        flex-flow: row wrap;
+        background-color: rgba(246, 202, 199, 1);
+        justify-content: end;
+        align-items: end;
+
+    }
+
+    .filter.left {
+
+        width: 15%;
+        margin-left: 5%;
+
+    }
+
+    .filter-center {
+        width: 60%;
+    }
+
+    .filter-center img {
+
+        width: 70%;
+        text-align: center;
+        margin-top: 1%;
+        margin-bottom: 1%;
+        margin-left: 15%;
+    }
+
+    .filter-right {
+
+        width: 15%;
+        margin-right: 5%;
+        margin-bottom: 0%;
+
+    }
+
+    .button-filter {
+
+        padding: 0px 0px;
+        text-align: end;
+        border: none;
+        cursor: pointer;
+        background-color: rgba(246, 202, 199, 1);
+
+    }
+
+    .button-filter img {
+
+        width: 70%;
+
+    }
+
+    .first-cards {
+
+        display: flex;
+        width: 100%;
+        height: 40vh;
+        flex-flow: row wrap;
+        background-color: rgba(246, 202, 199, 1);
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .cardContent {
+
+        display: block;
+        width: 42vw;
+        line-height: 0.01;
+        height: 40vh;
+        text-align: center;
+
+    }
+
+    .divisao {
+
+        width: 20px;
+        text-align: center;
+
+    }
+
+    .image {
+
+        width: 100%;
+
+    }
+
+    .cardContent h2 {
+
+        text-align: left;
+        font-size: 24px;
+        color: white;
+
+    }
+
+    .second-text-description {
+
+        text-align: left;
+        font-size: 13px;
+        opacity: 0.7;
+        margin-bottom: 0%;
+
+    }
+
+
+    .full-price {
+        text-align: left;
+        color: white;
+        font-size: 35px;
+        margin-bottom: 2.3vh;
+
+    }
+
+    .parceled-price {
+
+        text-align: left;
+        margin-bottom: 2vh;
+        font-size: 10px;
+
+    }
+
+    .buttom-cards {
+
+        float: left;
+        background-color: rgba(167, 185, 153, 1);
+        padding: 0px 78px;
+        cursor: pointer;
+
+    }
+
+    .buttom-cards img {
+
+        width: 45%;
+
+    }
+
+}
+
+@media only screen and (min-width: 650px) and (max-width: 1023px) {
+
+    * {
+
+        box-sizing: border-box;
+
+    }
+
+    body {
+
+        margin: 0;
+        background-color: rgba(246, 202, 199, 1);
+
+    }
+
+}
