@@ -195,7 +195,7 @@
 
     .filter-center {
         width: 60%;
-        padding-bottom: 2%;
+        padding-bottom: 0%;
     }
 
     .filter-center img {
@@ -233,12 +233,12 @@
 
         display: flex;
         width: 100%;
-        height: 40vh;
+        height: 100vh;
+        margin-top: 0%;
         flex-flow: row wrap;
         background-color: rgba(246, 202, 199, 1);
         justify-content: center;
         align-items: center;
-
     }
 
     .cardContent {
@@ -246,9 +246,8 @@
         display: block;
         width: 42vw;
         line-height: 0.1;
-        height: 40vh;
         text-align: center;
-
+        margin-top: 5%;
     }
 
     .divisao {
@@ -304,7 +303,7 @@
 
         float: left;
         background-color: rgba(167, 185, 153, 1);
-        padding: 2px 78px;
+        padding: 2px 45.5%;
         cursor: pointer;
 
     }
@@ -520,11 +519,11 @@
 
     .filter-center img {
 
-        width: 70%;
+        width: 80%;
         text-align: center;
-        margin-top: 1%;
+        margin-top: 2%;
         margin-bottom: 1%;
-        margin-left: 15%;
+        margin-left: 12%;
     }
 
     .filter-right {
@@ -555,9 +554,10 @@
 
         display: flex;
         width: 100%;
-        height: 40vh;
+        height: 100vh;
         flex-flow: row wrap;
         background-color: rgba(246, 202, 199, 1);
+        margin-top: 0%;
         justify-content: center;
         align-items: center;
 
@@ -568,8 +568,9 @@
         display: block;
         width: 42vw;
         line-height: 0.01;
-        height: 40vh;
         text-align: center;
+        margin-top: 3%;
+        margin-bottom: 5%;
 
     }
 
@@ -624,14 +625,14 @@
 
         float: left;
         background-color: rgba(167, 185, 153, 1);
-        padding: 0px 78px;
+        padding: 0px 43%;
         cursor: pointer;
 
     }
 
     .buttom-cards img {
 
-        width: 45%;
+        width: 100%;
 
     }
 
