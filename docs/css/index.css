@@ -1,5 +1,5 @@
 /* Smartphones (600px para baixo) */
-@media only screen and (max-width: 449px) {
+@media only screen and (max-width: 450px) {
     * {
 
         box-sizing: border-box;
@@ -19,7 +19,7 @@
         width: 100%;
         flex-flow: row wrap;
         background-color: rgba(246, 202, 199, 1);
-        height: 5vh;
+        height: 7vh;
         justify-content: center;
         align-items: center;
 
@@ -97,7 +97,7 @@
         width: 100%;
         flex-flow: row wrap;
         background-color: rgb(255, 255, 255);
-        height: 10vh;
+        height: 12vh;
         justify-content: center;
         align-items: center;
 
@@ -121,8 +121,9 @@
 
     .logo img {
 
+        width: 60%;
         margin-top: 15px;
-        max-width: 160px;
+        max-width: 60%;
 
     }
 
@@ -139,7 +140,7 @@
         width: 100%;
         flex-flow: row wrap;
         background-color: rgba(167, 185, 153, 1);
-        height: 7vh;
+        height: 6vh;
         justify-content: center;
         align-items: center;
 
@@ -147,32 +148,34 @@
 
     .text-store-left {
 
-        width: 20%;
-        height: auto;
+        width: 33%;
+        height: 10vh;
 
     }
 
     .text-store {
 
-        width: 60%;
-        text-align: center;
+        width: 33%;
+        height: 10vh;
 
     }
 
     .text-store h1 {
 
-        font-size: 40px;
-        margin-top: 6px;
+        font-size: 30px;
+        text-align: center;
+        margin: 7% 0%;
         color: white;
 
     }
 
     .text-store-right {
 
-        width: 20%;
-        height: auto;
+        width: 33%;
+        height: 10vh;
 
     }
+
 
     .icons-filter {
 
@@ -339,7 +342,7 @@
         width: 100%;
         flex-flow: row wrap;
         background-color: rgba(246, 202, 199, 1);
-        height: 6vh;
+        height: 8vh;
         justify-content: center;
         align-items: center;
 
@@ -440,7 +443,7 @@
     }
 
     .logo img {
-
+        width: 40%;
         margin-top: 5%;
         max-width: 62%;
 
@@ -459,7 +462,7 @@
         width: 100%;
         flex-flow: row wrap;
         background-color: rgba(167, 185, 153, 1);
-        height: 7vh;
+        height: 10vh;
         justify-content: center;
         align-items: center;
 
@@ -467,30 +470,31 @@
 
     .text-store-left {
 
-        width: 20%;
-        height: auto;
+        width: 33%;
+        height: 10vh;
 
     }
 
     .text-store {
 
-        width: 60%;
-        text-align: center;
+        width: 33%;
+        height: 10vh;
 
     }
 
     .text-store h1 {
 
-        font-size: 40px;
-        margin-top: 6px;
+        font-size: 45px;
+        text-align: center;
+        margin: 2% 0%;
         color: white;
 
     }
 
     .text-store-right {
 
-        width: 20%;
-        height: auto;
+        width: 33%;
+        height: 10vh;
 
     }
 
@@ -498,7 +502,7 @@
 
         display: flex;
         width: 100%;
-        height: 8vh;
+        height: 12vh;
         flex-flow: row wrap;
         background-color: rgba(246, 202, 199, 1);
         justify-content: end;
@@ -565,8 +569,8 @@
 
     .cardContent {
 
-        display: block;
-        width: 42vw;
+        display: inline;
+        width: 32vw;
         line-height: 0.01;
         text-align: center;
         margin-top: 3%;
@@ -576,20 +580,17 @@
 
     .divisao {
 
-        width: 20px;
-        text-align: center;
-
     }
 
     .image {
 
-        width: 100%;
+        width: 90%;
 
     }
 
     .cardContent h2 {
 
-        text-align: left;
+        text-align: center;
         font-size: 24px;
         color: white;
 
@@ -597,8 +598,8 @@
 
     .second-text-description {
 
-        text-align: left;
-        font-size: 13px;
+        text-align: center;
+        font-size: 10px;
         opacity: 0.7;
         margin-bottom: 0%;
 
@@ -606,39 +607,39 @@
 
 
     .full-price {
-        text-align: left;
+        text-align: center;
         color: white;
-        font-size: 35px;
-        margin-bottom: 2.3vh;
+        font-size: 22px;
+        margin-bottom: 3vh;
 
     }
 
     .parceled-price {
 
-        text-align: left;
+        text-align: center;
         margin-bottom: 2vh;
-        font-size: 10px;
+        font-size: 8px;
 
     }
 
     .buttom-cards {
 
-        float: left;
+        float: center;
         background-color: rgba(167, 185, 153, 1);
-        padding: 0px 43%;
+        width: 90%;
+        padding: 0px 0%;
         cursor: pointer;
 
     }
 
     .buttom-cards img {
 
-        width: 100%;
+        width: 10%;
 
     }
-
 }
 
-@media only screen and (min-width: 651px) and (max-width: 900px) {
+@media only screen and (min-width: 650px) and (max-width: 900px) {
 
     * {
 
@@ -728,7 +729,7 @@
 
     .header-icons img {
 
-        width: 70%;
+        width: 60%;
 
     }
 
@@ -738,7 +739,7 @@
         width: 100%;
         flex-flow: row wrap;
         background-color: rgb(255, 255, 255);
-        height: 18vh;
+        height: 16vh;
         justify-content: center;
         align-items: center;
 
@@ -761,7 +762,7 @@
     }
 
     .logo img {
-
+        width: 40%;
         margin-top: 5%;
         max-width: 62%;
 
@@ -780,7 +781,7 @@
         width: 100%;
         flex-flow: row wrap;
         background-color: rgba(167, 185, 153, 1);
-        height: 7vh;
+        height: 10vh;
         justify-content: center;
         align-items: center;
 
@@ -788,30 +789,31 @@
 
     .text-store-left {
 
-        width: 20%;
-        height: auto;
+        width: 33%;
+        height: 10vh;
 
     }
 
     .text-store {
 
-        width: 60%;
-        text-align: center;
+        width: 33%;
+        height: 10vh;
 
     }
 
     .text-store h1 {
 
-        font-size: 40px;
-        margin-top: 6px;
+        font-size: 45px;
+        text-align: center;
+        margin: 2% 0%;
         color: white;
 
     }
 
     .text-store-right {
 
-        width: 20%;
-        height: auto;
+        width: 33%;
+        height: 10vh;
 
     }
 
@@ -886,7 +888,7 @@
     .cardContent {
 
         display: inline;
-        width: 32vw;
+        width: 25vw;
         line-height: 0.01;
         text-align: center;
         margin-top: 3%;
@@ -912,7 +914,7 @@
     .second-text-description {
 
         text-align: center;
-        font-size: 14px;
+        font-size: 10px;
         opacity: 0.7;
         margin-bottom: 0%;
 
@@ -922,8 +924,8 @@
     .full-price {
         text-align: center;
         color: white;
-        font-size: 30px;
-        margin-bottom: 2.3vh;
+        font-size: 26px;
+        margin-bottom: 3vh;
 
     }
 
@@ -931,7 +933,7 @@
 
         text-align: center;
         margin-bottom: 2vh;
-        font-size: 10px;
+        font-size: 7px;
 
     }
 
