@@ -803,7 +803,7 @@
 
         font-size: 65px;
         text-align: center;
-        margin: 3% 0%;
+        margin: 0% 0%;
         color: white;
 
     }
@@ -1076,9 +1076,9 @@
     }
 
     .logo img {
-        width: 40%;
-        margin-top: 5%;
-        max-width: 62%;
+        width: 35%;
+        margin-top: 0%;
+        max-width: 40%;
 
     }
 
@@ -1119,7 +1119,7 @@
 
         font-size: 65px;
         text-align: center;
-        margin: 2% 0%;
+        margin: 0% 0%;
         color: white;
 
     }
@@ -1435,7 +1435,7 @@
 
         font-size: 65px;
         text-align: center;
-        margin: 2% 0%;
+        margin: 0% 0%;
         color: white;
 
     }
