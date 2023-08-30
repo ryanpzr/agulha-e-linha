@@ -34,7 +34,7 @@
 
     .discount h2 {
 
-        font-size: 9px;
+        font-size: 14px;
         color: white;
 
     }
@@ -264,7 +264,7 @@
 
         width: 100%;
         margin-bottom: 6px;
-
+        border: 1px solid white;
 
     }
 
@@ -305,7 +305,8 @@
     .buttom-cards {
 
         float: left;
-        background-color: rgba(167, 185, 153, 1);
+        background-color: rgba(246, 202, 199, 1);
+        border: 1px solid white;
         padding: 2px 45.5%;
         cursor: pointer;
 
@@ -314,7 +315,7 @@
     .buttom-cards img {
 
         width: auto;
-        height: 12px;
+        height: 14px;
 
     }
 
@@ -583,6 +584,7 @@
     .image {
 
         width: 90%;
+        border: 1px solid white;
 
     }
 
@@ -597,7 +599,7 @@
     .second-text-description {
 
         text-align: center;
-        font-size: 10px;
+        font-size: 13px;
         opacity: 0.7;
         margin-bottom: 0%;
 
@@ -607,7 +609,7 @@
     .full-price {
         text-align: center;
         color: white;
-        font-size: 22px;
+        font-size: 26px;
         margin-bottom: 3vh;
 
     }
@@ -616,15 +618,17 @@
 
         text-align: center;
         margin-bottom: 2vh;
-        font-size: 8px;
+        font-size: 12px;
 
     }
 
     .buttom-cards {
 
         float: center;
-        background-color: rgba(167, 185, 153, 1);
+        background-color: rgba(246, 202, 199, 1);
+        border: 1px solid white;
         width: 90%;
+        margin-top: 2%;
         padding: 0px 0%;
         cursor: pointer;
 
@@ -897,6 +901,7 @@
 
     .image {
 
+        border: 1px solid white;
         width: 90%;
 
     }
@@ -912,7 +917,7 @@
     .second-text-description {
 
         text-align: center;
-        font-size: 10px;
+        font-size: 14px;
         opacity: 0.7;
         margin-bottom: 0%;
 
@@ -931,15 +936,17 @@
 
         text-align: center;
         margin-bottom: 2vh;
-        font-size: 18px;
+        font-size: 14px;
 
     }
 
     .buttom-cards {
 
         float: center;
-        background-color: rgba(167, 185, 153, 1);
-        width: 80%;
+        background-color: rgba(246, 202, 199, 1);
+        border: 1px solid white;
+        width: 90%;
+        margin-top: 3%;
         padding: 0px 0%;
         cursor: pointer;
 
@@ -1214,6 +1221,7 @@
     .image {
 
         width: 90%;
+        border: 1px solid white;
 
     }
 
@@ -1228,7 +1236,7 @@
     .second-text-description {
 
         text-align: center;
-        font-size: 10px;
+        font-size: 14px;
         opacity: 0.7;
         margin-bottom: 0%;
 
@@ -1247,15 +1255,17 @@
 
         text-align: center;
         margin-bottom: 2vh;
-        font-size: 18px;
+        font-size: 13px;
 
     }
 
     .buttom-cards {
 
         float: center;
-        background-color: rgba(167, 185, 153, 1);
-        width: 80%;
+        background-color: rgba(246, 202, 199, 1);
+        border: 1px solid white;
+        width: 90%;
+        margin-top: 3%;
         padding: 0px 0%;
         cursor: pointer;
 
@@ -1530,6 +1540,7 @@
     .image {
 
         width: 90%;
+        border: 1px solid white;
 
     }
 
@@ -1544,7 +1555,7 @@
     .second-text-description {
 
         text-align: center;
-        font-size: 10px;
+        font-size: 16px;
         opacity: 0.7;
         margin-bottom: 0%;
 
@@ -1570,8 +1581,10 @@
     .buttom-cards {
 
         float: center;
-        background-color: rgba(167, 185, 153, 1);
-        width: 80%;
+        background-color: rgba(246, 202, 199, 1);
+        border: 1px solid white;
+        width: 90%;
+        margin-top: 4%;
         padding: 0px 0%;
         cursor: pointer;
 
