@@ -304,18 +304,37 @@
 
     .buttom-cards {
 
-        float: left;
+        position: relative;
+        float: center;
         background-color: rgba(246, 202, 199, 1);
         border: 1px solid white;
-        padding: 2px 45.5%;
+        width: 100%;
+        margin-top: 4%;
+        padding: 1rem 0%;
         cursor: pointer;
 
     }
 
     .buttom-cards img {
 
-        width: auto;
-        height: 14px;
+        position: absolute;
+        display: none;
+        width: 6%;
+        left: 10%;
+        top: 20%;
+
+    }
+
+    .buttom-cards span {
+
+        position: absolute;
+        color: white;
+        font-size: 13px;
+        width: 100%;
+        right: 0%;
+        top: 26%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
 
     }
 
@@ -624,19 +643,37 @@
 
     .buttom-cards {
 
+        position: relative;
         float: center;
         background-color: rgba(246, 202, 199, 1);
         border: 1px solid white;
         width: 90%;
-        margin-top: 2%;
-        padding: 0px 0%;
+        margin-top: 4%;
+        padding: 1rem 0%;
         cursor: pointer;
 
     }
 
     .buttom-cards img {
 
-        width: 10%;
+        position: absolute;
+        display: none;
+        width: 6%;
+        left: 10%;
+        top: 20%;
+
+    }
+
+    .buttom-cards span {
+
+        position: absolute;
+        color: white;
+        font-size: 12px;
+        width: 100%;
+        right: 0%;
+        top: 25%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
 
     }
 }
@@ -942,19 +979,37 @@
 
     .buttom-cards {
 
+        position: relative;
         float: center;
         background-color: rgba(246, 202, 199, 1);
         border: 1px solid white;
         width: 90%;
-        margin-top: 3%;
-        padding: 0px 0%;
+        margin-top: 4%;
+        padding: 1rem 0%;
         cursor: pointer;
 
     }
 
     .buttom-cards img {
 
-        width: 10%;
+        position: absolute;
+        display: none;
+        width: 6%;
+        left: 10%;
+        top: 20%;
+
+    }
+
+    .buttom-cards span {
+
+        position: absolute;
+        color: white;
+        font-size: 16px;
+        width: 100%;
+        right: 0%;
+        top: 24%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
 
     }
 
@@ -1261,19 +1316,37 @@
 
     .buttom-cards {
 
+        position: relative;
         float: center;
         background-color: rgba(246, 202, 199, 1);
         border: 1px solid white;
         width: 90%;
-        margin-top: 3%;
-        padding: 0px 0%;
+        margin-top: 4%;
+        padding: 1rem 0%;
         cursor: pointer;
 
     }
 
     .buttom-cards img {
 
-        width: 10%;
+        position: absolute;
+        display: none;
+        width: 6%;
+        left: 10%;
+        top: 20%;
+
+    }
+
+    .buttom-cards span {
+
+        position: absolute;
+        color: white;
+        font-size: 16px;
+        width: 100%;
+        right: 0%;
+        top: 20%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
 
     }
 
@@ -1490,7 +1563,7 @@
 
     .filter-right {
 
-        width: 10%;
+        width: 7%;
         margin-right: 3%;
         margin-top: 1%;
 
@@ -1533,6 +1606,7 @@
         text-align: center;
         margin-top: 3%;
         margin-bottom: 5%;
+
     }
 
     .divisao {}
@@ -1580,19 +1654,37 @@
 
     .buttom-cards {
 
+        position: relative;
         float: center;
         background-color: rgba(246, 202, 199, 1);
         border: 1px solid white;
         width: 90%;
         margin-top: 4%;
-        padding: 0px 0%;
+        padding: 1rem 0%;
         cursor: pointer;
 
     }
 
     .buttom-cards img {
 
-        width: 10%;
+        position: absolute;
+        display: none;
+        width: 6%;
+        left: 10%;
+        top: 20%;
+
+    }
+
+    .buttom-cards span {
+
+        position: absolute;
+        color: white;
+        font-size: 18px;
+        width: 100%;
+        right: 0%;
+        top: 17%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
 
     }
 
