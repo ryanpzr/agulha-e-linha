@@ -33,6 +33,74 @@ purpleDoll.addEventListener("click", function () {
 
 })
 
+function VerificarBoneca() {
+    let nome = document.getElementById("searchBoneca").value.toLowerCase(); // Obtém o valor do input
+
+    var divsProdutos = document.querySelectorAll(".cardContent");
+
+    switch (nome) {
+        case "duda":
+            exibirDiv("duda");
+            document.getElementById("teste").innerHTML = "";
+            break;
+
+        case "maria":
+            exibirDiv("maria");
+            document.getElementById("teste").innerHTML = "";
+
+            break;
+
+        case "roberta":
+            exibirDiv("roberta");
+            document.getElementById("teste").innerHTML = "";
+
+            break;
+
+        case "claudia":
+            exibirDiv("claudia");
+            document.getElementById("teste").innerHTML = "";
+
+            break;
+
+        case "luiza":
+            exibirDiv("luiza");
+            document.getElementById("teste").innerHTML = "";
+
+            break;
+
+        case "edlen":
+            exibirDiv("edlen");
+            document.getElementById("teste").innerHTML = "";
+
+            break;
+
+        default:
+            // Nome não encontrado, mostra todas as divs de produtos
+            divsProdutos.forEach(function (div) {
+                div.style.display = "block";
+
+            });
+            document.getElementById("teste").innerHTML = "Não encontrado...";
+
+            // Configura um temporizador para limpar a mensagem "Não encontrado..." após 3 segundos (3000 milissegundos)
+            setTimeout(function () {
+                document.getElementById("teste").innerHTML = "";
+            }, 3000); // 3000 milissegundos = 3 segundos
+    }
+}
+
+function exibirDiv(id) {
+    var divsProdutos = document.querySelectorAll(".cardContent");
+    divsProdutos.forEach(function (div) {
+        if (div.id === id) {
+            div.style.display = "block";
+
+        } else {
+            div.style.display = "none";
+        }
+    });
+}
+
 // lock orientation to portrait
 window.screen.lockOrientationUniversal = window.screen.lockOrientation || window.screen.mozLockOrientation || window.screen.msLockOrientation;
 
@@ -42,26 +110,3 @@ if (window.screen.lockOrientationUniversal("portrait")) {
     console.log("Orientation lock failed.");
 }
 
-/*const search = () => {
-
-    const searchbox = document.getElementById("search-item").value.toUpperCase();
-    const storeitems = document.getElementById("first-cards")
-    const product = document.querySelectorAll(".cardContent")
-    const pname = document.getElementsByTagName("h2")
-
-    for (var i = 0; i < pname.length; i++) {
-        let match = cardContent[i].getElementsByTagName('h2')[0];
-
-        if (match) {
-            let textvalue = match.textContent || match.innerHTML
-
-            if (textvalue.toUpperCase().indexOf(searchbox) > -1) {
-                cardContent[i].style.display = "";
-            } else {
-                cardContent[i].style.display = "none";
-            }
-        }
-
-    }
-
-}*/
