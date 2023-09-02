@@ -316,6 +316,7 @@
         line-height: 0.1;
         text-align: center;
         margin: 2%;
+        margin-bottom: 10%;
 
     }
 
@@ -1840,7 +1841,7 @@
     .localizar {
 
         position: absolute;
-        top: 20%;
+        top: 200%;
 
     }
 
