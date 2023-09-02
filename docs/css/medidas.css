@@ -140,7 +140,7 @@
         width: 100%;
         flex-flow: row wrap;
         background-color: rgba(167, 185, 153, 1);
-        height: 7vh;
+        height: 6vh;
         justify-content: center;
         align-items: center;
 
@@ -162,7 +162,7 @@
 
     .text-store h1 {
 
-        font-size: 40px;
+        font-size: 30px;
         margin-top: 6px;
         color: white;
 
