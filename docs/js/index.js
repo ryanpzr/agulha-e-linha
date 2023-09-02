@@ -42,6 +42,7 @@ function VerificarBoneca() {
         case "duda":
             exibirDiv("duda");
             document.getElementById("teste").innerHTML = "";
+            clearBoneca.style.display = "block";
             break;
 
         case "maria":
@@ -100,6 +101,25 @@ function exibirDiv(id) {
         }
     });
 }
+
+function LimparBoneca() {
+    var divsProdutos = document.querySelectorAll(".cardContent");
+  
+    // Mostra todas as divs de produtos
+    divsProdutos.forEach(function(div) {
+      div.style.display = "block";
+      div.style.marginTop = "0"; // Define a margem superior de volta para 0
+
+    });
+
+    clearBoneca.style.display = "none";
+  
+    // Limpa o campo de pesquisa
+    document.getElementById("searchBoneca").value = "";
+  
+    // Limpa a mensagem "Não encontrado..."
+    document.getElementById("teste").innerHTML = "";
+  }
 
 // lock orientation to portrait
 window.screen.lockOrientationUniversal = window.screen.lockOrientation || window.screen.mozLockOrientation || window.screen.msLockOrientation;
