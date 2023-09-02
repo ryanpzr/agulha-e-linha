@@ -104,7 +104,7 @@
     }
 
     .search-left {
-
+        display: flex;
         width: 20%;
         height: auto;
 
@@ -119,23 +119,31 @@
     }
 
     .button-search {
-
         margin-left: 5%;
         padding: 0%;
-        width: 25vw;
-        height: 2.3vh;
-        font-size: 10px;
+        width: 20vw;
+        height: 3vh;
+        font-size: 8px;
 
     }
 
     .button-click {
 
-        margin-left: 5%;
         width: 8vw;
-        height: 2vh;
+        height: 3vh;
+        cursor: pointer;
         background-color: rgba(167, 185, 153, 1);
 
     }
+
+    .button-click img{
+
+        width: 3vw;
+        text-align: center;
+        margin: 0;
+
+    }
+
 
     .logo {
 
@@ -190,7 +198,7 @@
 
         font-size: 30px;
         text-align: center;
-        margin: 7% 0%;
+        margin: 0;
         color: white;
 
     }
@@ -336,7 +344,7 @@
         background-color: rgba(246, 202, 199, 1);
         border: 1px solid white;
         width: 100%;
-        margin-top: 4%;
+        margin-top: 0%;
         padding: 1rem 0%;
         cursor: pointer;
 
@@ -474,10 +482,43 @@
     }
 
     .search-left {
-
+         display: flex;
         width: 20%;
         height: auto;
 
+
+    }
+
+    .search-left p {
+
+        margin-left: 5%;
+        font-size: 10px;
+
+    }
+
+    .button-search {
+        margin-left: 5%;
+        padding: 0%;
+        width: 20vw;
+        height: 3.5vh;
+        font-size: 10px;
+
+    }
+
+    .button-click {
+
+        width: 6vw;
+        height: 3.5vh;
+        cursor: pointer;
+        background-color: rgba(167, 185, 153, 1);
+
+    }
+
+    .button-click img{
+
+        width: 3vw;
+        text-align: center;
+        margin: 0;
 
     }
 
@@ -813,9 +854,43 @@
 
     .search-left {
 
+        display: flex;
         width: 20%;
         height: auto;
 
+
+    }
+
+    .search-left p {
+
+        margin-left: 5%;
+        font-size: 10px;
+
+    }
+
+    .button-search {
+        margin-left: 5%;
+        padding: 0%;
+        width: 20vw;
+        height: 3.5vh;
+        font-size: 10px;
+
+    }
+
+    .button-click {
+
+        width: 6vw;
+        height: 3.5vh;
+        cursor: pointer;
+        background-color: rgba(167, 185, 153, 1);
+
+    }
+
+    .button-click img{
+
+        width: 2vw;
+        text-align: center;
+        margin: 0;
 
     }
 
@@ -869,9 +944,9 @@
 
     .text-store h1 {
 
-        font-size: 65px;
+        font-size: 55px;
         text-align: center;
-        margin: 0% 0%;
+        margin: 0;
         color: white;
 
     }
@@ -1150,9 +1225,43 @@
 
     .search-left {
 
+        display: flex;
         width: 20%;
         height: auto;
 
+
+    }
+
+    .search-left p {
+
+        margin-left: 5%;
+        font-size: 10px;
+
+    }
+
+    .button-search {
+        margin-left: 5%;
+        padding: 0%;
+        width: 20vw;
+        height: 3.5vh;
+        font-size: 10px;
+
+    }
+
+    .button-click {
+
+        width: 6vw;
+        height: 3.5vh;
+        cursor: pointer;
+        background-color: rgba(167, 185, 153, 1);
+
+    }
+
+    .button-click img{
+
+        width: 1.7vw;
+        text-align: center;
+        margin: 0;
 
     }
 
@@ -1206,7 +1315,7 @@
 
     .text-store h1 {
 
-        font-size: 65px;
+        font-size: 55px;
         text-align: center;
         margin: 0% 0%;
         color: white;
@@ -1487,9 +1596,43 @@
 
     .search-left {
 
+        display: flex;
         width: 20%;
         height: auto;
 
+
+    }
+
+    .search-left p {
+
+        margin-left: 5%;
+        font-size: 10px;
+
+    }
+
+    .button-search {
+        margin-left: 5%;
+        padding: 0%;
+        width: 20vw;
+        height: 3.5vh;
+        font-size: 12px;
+
+    }
+
+    .button-click {
+
+        width: 6vw;
+        height: 3.5vh;
+        cursor: pointer;
+        background-color: rgba(167, 185, 153, 1);
+
+    }
+
+    .button-click img{
+
+        width: 1.5vw;
+        text-align: center;
+        margin: 0;
 
     }
 
