@@ -81,6 +81,9 @@ function VerificarBoneca() {
                 div.style.display = "block";
 
             });
+
+            clearBoneca.style.display = "none";
+
             document.getElementById("teste").innerHTML = "Não encontrado...";
 
             // Configura um temporizador para limpar a mensagem "Não encontrado..." após 3 segundos (3000 milissegundos)

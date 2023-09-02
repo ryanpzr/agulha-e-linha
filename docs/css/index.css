@@ -124,7 +124,7 @@
         margin-left: 0%;
         padding: 0%;
         width: 17vw;
-        height: 2vh;
+        height: 3vh;
         font-size: 8px;
         border: 1px solid black;
 
@@ -134,7 +134,7 @@
     .button-click {
 
         width: 8vw;
-        height: 2vh;
+        height: 3vh;
         cursor: pointer;
         border: 1px solid black;
         background-color: rgba(167, 185, 153, 1);
@@ -155,6 +155,7 @@
         display: none;
         margin-left: 2%;
         height: 20%;
+        border: none;
         text-align: center;
         background-color: white;
 
@@ -577,7 +578,7 @@
     .localizar {
 
         position: absolute;
-        top: 35%;
+        top: 15%;
 
     }
 
@@ -610,7 +611,7 @@
     }
 
     .logo img {
-        width: 100%;
+        width: 88%;
         margin-top: 5%;
 
     }
@@ -998,7 +999,7 @@
     .localizar {
 
         position: absolute;
-        top: 55%;
+        top: 20%;
 
     }
 
@@ -1031,7 +1032,7 @@
     }
 
     .logo img {
-        width: 100%;
+        width: 86%;
         margin-top: 5%;
 
     }
@@ -1418,7 +1419,7 @@
     .localizar {
 
         position: absolute;
-        top: 55%;
+        top: 20%;
 
     }
 
@@ -1839,7 +1840,7 @@
     .localizar {
 
         position: absolute;
-        top: 55%;
+        top: 20%;
 
     }
 
