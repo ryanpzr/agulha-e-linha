@@ -48,30 +48,39 @@ function VerificarBoneca() {
         case "maria":
             exibirDiv("maria");
             document.getElementById("teste").innerHTML = "";
+            clearBoneca.style.display = "block";
 
             break;
 
         case "roberta":
             exibirDiv("roberta");
             document.getElementById("teste").innerHTML = "";
+            clearBoneca.style.display = "block";
+
 
             break;
 
         case "claudia":
             exibirDiv("claudia");
             document.getElementById("teste").innerHTML = "";
+            clearBoneca.style.display = "block";
+
 
             break;
 
         case "luiza":
             exibirDiv("luiza");
             document.getElementById("teste").innerHTML = "";
+            clearBoneca.style.display = "block";
+
 
             break;
 
         case "edlen":
             exibirDiv("edlen");
             document.getElementById("teste").innerHTML = "";
+            clearBoneca.style.display = "block";
+
 
             break;
 
