@@ -1014,10 +1014,12 @@
 
     .text-store h1 {
 
-        font-size: 65px;
-        text-align: center;
-        margin: 2% 0%;
-        color: white;
+            font-size: 65px;
+            text-align: center;
+            margin: 0% 0%;
+            color: white;
+    
+        
 
     }
 
