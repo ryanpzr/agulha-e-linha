@@ -120,60 +120,7 @@
 
     }
 
-    .button-search {
-        margin-left: 0%;
-        padding: 0%;
-        width: 17vw;
-        height: 3vh;
-        font-size: 8px;
-        border: 1px solid black;
 
-
-    }
-
-    .button-click {
-
-        width: 8vw;
-        height: 3vh;
-        cursor: pointer;
-        border: 1px solid black;
-        background-color: rgba(167, 185, 153, 1);
-
-    }
-
-    .button-click img{
-
-        width: 3vw;
-        text-align: center;
-        margin: 0;
-
-    }
-
-    .buttom-clear {
-
-        padding: 0;
-        display: none;
-        margin-left: 2%;
-        height: 20%;
-        border: none;
-        text-align: center;
-        background-color: white;
-
-    }
-
-    .buttom-clear p{
-
-        color: red;
-        padding: 0;
-        margin: 0;
-    }
-
-    .localizar {
-
-        position: absolute;
-        top: 55%;
-
-    }
 
     .logo {
 
@@ -209,19 +156,21 @@
         justify-content: center;
         align-items: center;
 
+
     }
 
     .text-store-left {
 
         width: 33%;
-        height: 10vh;
+        height: 6vh;
+
 
     }
 
     .text-store {
 
         width: 33%;
-        height: 10vh;
+        height: 6vh;
 
     }
 
@@ -237,7 +186,8 @@
     .text-store-right {
 
         width: 33%;
-        height: 10vh;
+        height: 6vh;
+
 
     }
 
@@ -245,45 +195,91 @@
     .icons-filter {
 
         display: flex;
-        width: 100%;
-        height: 8vh;
-        flex-flow: row wrap;
+        width: 100vw;
+        height: 6vh;
+        margin-bottom: 0%;
         background-color: rgba(246, 202, 199, 1);
-        justify-content: end;
-        align-items: end;
 
     }
 
-    .filter.left {
+    .filter-left {
 
-        width: 15%;
+        display: flex;
+        width: 70%;
+        height: 6vh;
+
+    }
+
+    .button-search {
         margin-left: 5%;
+        margin-top: 3%;
+        padding: 0%;
+        width: 28vw;
+        height: 3vh;
+        font-size: 7px;
+        border-radius: 0%;
+        border: 1px solid black;
+
 
     }
 
-    .filter-center {
-        width: 60%;
-        padding-bottom: 0%;
+    .button-click {
+
+        margin-top: 3%;
+        width: 8vw;
+        height: 3vh;
+        cursor: pointer;
+        border: 1px solid black;
+        background-color: rgba(167, 185, 153, 1);
+
     }
 
-    .filter-center img {
+    .button-click img {
 
-        width: 90%;
+        width: 3vw;
         text-align: center;
-        margin-left: 8%;
+        margin: 0;
+
     }
+
+    .buttom-clear {
+
+        display: none;
+        margin-top: 3%;
+        margin-left: 1%;
+        height: 3vh;
+        border: none;
+        background-color: rgba(246, 202, 199, 1);
+
+    }
+
+    .buttom-clear p {
+
+        color: red;
+        padding: 0;
+        margin: 0;
+    }
+
+    .localizar {
+
+        margin-left: 5%;
+        font-size: 12px;
+
+    }
+
 
     .filter-right {
 
-        width: 15%;
-        margin-right: 5%;
-        margin-bottom: 0%;
+        width: 30%;
+        height: 6vh;
+        margin-right: 3%;
 
     }
 
     .button-filter {
 
         padding: 0px 0px;
+        margin: 5% 5%;
         text-align: end;
         border: none;
         cursor: pointer;
@@ -293,7 +289,7 @@
 
     .button-filter img {
 
-        width: 70%;
+        width: 30%;
 
     }
 
@@ -513,96 +509,6 @@
 
     }
 
-    .search-left {
-        display: flex;
-        width: 33%;
-        height: auto;
-
-    }
-
-    .search-left p {
-
-        margin-left: 5%;
-        font-size: 10px;
-
-    }
-
-    .button-search {
-        margin-left: 5%;
-        padding: 0%;
-        width: 20vw;
-        height: 3.5vh;
-        border: 1px solid black;
-        font-size: 10px;
-
-    }
-
-    .button-click {
-
-        width: 6vw;
-        height: 3.5vh;
-        cursor: pointer;
-        border: 1px solid black;
-        background-color: rgba(167, 185, 153, 1);
-
-    }
-
-    .button-click img{
-
-        width: 3vw;
-        text-align: center;
-        margin: 0;
-
-    }
-
-    .buttom-clear {
-
-        padding: 0;
-        display: none;
-        margin-left: 2%;
-        height: 20%;
-        cursor: pointer;
-        text-align: center;
-        border: none;
-        background-color: white;
-
-    }
-
-    .buttom-clear p{
-
-        color: red;
-        padding: 0;
-        margin: 0;
-        font-size: 20px;
-    }
-
-    .localizar {
-
-        position: absolute;
-        top: 15%;
-
-    }
-
-
-    .apagar-filtro {
-
-        position: absolute;
-        width: 5vw;
-        height: 2vh;
-        cursor: pointer;
-        top: 60%;
-        left: 19.8%;
-        background-color: white;
-    }
-
-    .apagar-filtro p{
-
-        font-size: 15px;
-        color: red;
-        margin: 0;
-
-    }
-
     .logo {
 
         width: 33%;
@@ -624,13 +530,20 @@
 
     }
 
+    .search-left {
+
+        width: 33%;
+        height: auto;
+
+    }
+
     .text-about-store {
 
         display: flex;
         width: 100%;
         flex-flow: row wrap;
         background-color: rgba(167, 185, 153, 1);
-        height: 10vh;
+        height: 6vh;
         justify-content: center;
         align-items: center;
 
@@ -669,46 +582,91 @@
     .icons-filter {
 
         display: flex;
-        width: 100%;
-        height: 12vh;
-        flex-flow: row wrap;
+        width: 100vw;
+        height: 6vh;
+        margin-bottom: 0%;
         background-color: rgba(246, 202, 199, 1);
-        justify-content: end;
-        align-items: end;
 
     }
 
-    .filter.left {
+    .filter-left {
 
-        width: 15%;
+        display: flex;
+        width: 70%;
+        height: 6vh;
+
+    }
+
+    .button-search {
         margin-left: 5%;
+        margin-top: 3%;
+        padding: 0%;
+        width: 28vw;
+        height: 3vh;
+        font-size: 7px;
+        border-radius: 0%;
+        border: 1px solid black;
+
 
     }
 
-    .filter-center {
-        width: 60%;
+    .button-click {
+
+        margin-top: 3%;
+        width: 8vw;
+        height: 3vh;
+        cursor: pointer;
+        border: 1px solid black;
+        background-color: rgba(167, 185, 153, 1);
+
     }
 
-    .filter-center img {
+    .button-click img {
 
-        width: 80%;
+        width: 3vw;
         text-align: center;
-        margin-top: 2%;
-        margin-bottom: 1%;
-        margin-left: 12%;
+        margin: 0;
+
+    }
+
+    .buttom-clear {
+
+        display: none;
+        margin-top: 3%;
+        margin-left: 1%;
+        height: 3vh;
+        border: none;
+        background-color: white;
+
+    }
+
+    .buttom-clear p {
+
+        color: red;
+        padding: 0;
+        margin: 0;
+    }
+
+    .localizar {
+
+        margin-left: 5%;
+        margin-top: 5%;
+        font-size: 12px;
+
     }
 
     .filter-right {
 
-        width: 15%;
-        margin-right: 5%;
-        margin-bottom: 0%;
+        width: 30%;
+        height: 6vh;
+        margin-right: 3%;
 
     }
 
     .button-filter {
 
         padding: 0px 0px;
+        margin: 5% 5%;
         text-align: end;
         border: none;
         cursor: pointer;
@@ -718,7 +676,7 @@
 
     .button-filter img {
 
-        width: 70%;
+        width: 30%;
 
     }
 
@@ -726,12 +684,14 @@
 
         display: flex;
         width: 100%;
-        height: 100vh;
+        height: 80vh;
         flex-flow: row wrap;
         background-color: rgba(246, 202, 199, 1);
         margin-top: 0%;
         justify-content: center;
         align-items: center;
+        border: 1px solid red;
+
 
     }
 
@@ -741,7 +701,7 @@
         width: 32vw;
         line-height: 0.01;
         text-align: center;
-        margin-top: 3%;
+        margin-top: 0%;
         margin-bottom: 5%;
 
     }
@@ -932,98 +892,6 @@
 
     }
 
-    .search-left {
-
-        display: flex;
-        width: 33%;
-        height: auto;
-
-
-    }
-
-    .search-left p {
-
-        margin-left: 5%;
-        font-size: 10px;
-
-    }
-
-    .button-search {
-        margin-left: 5%;
-        padding: 0%;
-        width: 20vw;
-        height: 3.5vh;
-        border: 1px solid black;
-        font-size: 10px;
-
-    }
-
-    .button-click {
-
-        width: 6vw;
-        height: 3.5vh;
-        cursor: pointer;
-        border: 1px solid black;
-        background-color: rgba(167, 185, 153, 1);
-
-    }
-
-    .button-click img{
-
-        width: 2vw;
-        text-align: center;
-        margin: 0;
-
-    }
-
-    .buttom-clear {
-
-        padding: 0;
-        display: none;
-        margin-left: 2%;
-        height: 20%;
-        cursor: pointer;
-        text-align: center;
-        border: none;
-        background-color: white;
-
-    }
-
-    .buttom-clear p{
-
-        color: red;
-        padding: 0;
-        margin: 0;
-        font-size: 20px;
-    }
-
-    .localizar {
-
-        position: absolute;
-        top: 20%;
-
-    }
-
-
-    .apagar-filtro {
-
-        position: absolute;
-        width: 5vw;
-        height: 2vh;
-        cursor: pointer;
-        top: 60%;
-        left: 19.8%;
-        background-color: white;
-    }
-
-    .apagar-filtro p{
-
-        font-size: 15px;
-        color: red;
-        margin: 0;
-
-    }
-
     .logo {
 
         width: 33%;
@@ -1045,13 +913,20 @@
 
     }
 
+    .search-left {
+
+        width: 33%;
+        height: auto;
+
+    }
+
     .text-about-store {
 
         display: flex;
         width: 100%;
         flex-flow: row wrap;
         background-color: rgba(167, 185, 153, 1);
-        height: 10vh;
+        height: 6vh;
         justify-content: center;
         align-items: center;
 
@@ -1073,7 +948,7 @@
 
     .text-store h1 {
 
-        font-size: 55px;
+        font-size: 45px;
         text-align: center;
         margin: 0;
         color: white;
@@ -1090,45 +965,92 @@
     .icons-filter {
 
         display: flex;
-        width: 100%;
-        height: 1vh;
-        flex-flow: row wrap;
-        margin-bottom: 1%;
+        width: 100vw;
+        height: 6vh;
+        margin-bottom: 0%;
         background-color: rgba(246, 202, 199, 1);
-        justify-content: end;
-        align-items: end;
 
     }
 
-    .filter.left {
+    .filter-left {
 
-        width: 15%;
-        margin-left: 5%;
+        display: flex;
+        width: 70%;
+        height: 6vh;
 
     }
 
-    .filter-center {
-        width: 60%;
+    .button-search {
+        margin-left: 9%;
+        margin-top: 4%;
+        padding: 0%;
+        width: 28vw;
+        height: 3vh;
+        font-size: 7px;
+        border-radius: 0%;
+        border: 1px solid black;
+
+
+    }
+
+    .button-click {
+
+        margin-top: 4%;
+        width: 8vw;
+        height: 3vh;
+        cursor: pointer;
+        border: 1px solid black;
+        background-color: rgba(167, 185, 153, 1);
+
+    }
+
+    .button-click img {
+
+        width: 2.5vw;
         text-align: center;
+        margin: 0;
+
     }
 
-    .filter-center img {
+    .buttom-clear {
 
         display: none;
+        margin-top: 4%;
+        margin-left: 1%;
+        height: 3vh;
+        border: none;
+        background-color: white;
 
     }
+
+    .buttom-clear p {
+
+        color: red;
+        padding: 0;
+        margin: 0;
+    }
+
+    .localizar {
+
+        margin-left: 5%;
+        margin-top: 5%;
+        font-size: 12px;
+
+    }
+
 
     .filter-right {
 
-        width: 10%;
+        width: 30%;
+        height: 6vh;
         margin-right: 3%;
-        margin-top: 1%;
 
     }
 
     .button-filter {
 
         padding: 0px 0px;
+        margin: 5% 5%;
         text-align: end;
         border: none;
         cursor: pointer;
@@ -1138,7 +1060,7 @@
 
     .button-filter img {
 
-        width: 50%;
+        width: 30%;
 
     }
 
@@ -1149,9 +1071,10 @@
         height: 100vh;
         flex-flow: row wrap;
         background-color: rgba(246, 202, 199, 1);
-        margin-top: 0%;
         justify-content: center;
         align-items: center;
+
+
 
     }
 
@@ -1161,7 +1084,7 @@
         width: 30vw;
         line-height: 0.01;
         text-align: center;
-        margin-top: 3%;
+        margin-top: 2%;
         margin-bottom: 5%;
     }
 
@@ -1352,98 +1275,6 @@
 
     }
 
-    .search-left {
-
-        display: flex;
-        width: 20%;
-        height: auto;
-
-
-    }
-
-    .search-left p {
-
-        margin-left: 5%;
-        font-size: 10px;
-
-    }
-
-    .button-search {
-        margin-left: 5%;
-        padding: 0%;
-        width: 20vw;
-        height: 3.5vh;
-        border: 1px solid black;
-        font-size: 10px;
-
-    }
-
-    .button-click {
-
-        width: 6vw;
-        height: 3.5vh;
-        cursor: pointer;
-        border: 1px solid black;
-        background-color: rgba(167, 185, 153, 1);
-
-    }
-
-    .button-click img{
-
-        width: 1.7vw;
-        text-align: center;
-        margin: 0;
-
-    }
-
-    .buttom-clear {
-
-        padding: 0;
-        display: none;
-        margin-left: 2%;
-        height: 20%;
-        cursor: pointer;
-        text-align: center;
-        background-color: white;
-        border: none;
-
-    }
-
-    .buttom-clear p{
-
-        color: red;
-        padding: 0;
-        margin: 0;
-        font-size: 15px;
-    }
-
-    .localizar {
-
-        position: absolute;
-        top: 20%;
-
-    }
-
-
-    .apagar-filtro {
-
-        position: absolute;
-        width: 5vw;
-        height: 2vh;
-        cursor: pointer;
-        top: 60%;
-        left: 19.8%;
-        background-color: white;
-    }
-
-    .apagar-filtro p{
-
-        font-size: 15px;
-        color: red;
-        margin: 0;
-
-    }
-
     .logo {
 
         width: 60%;
@@ -1466,13 +1297,20 @@
 
     }
 
+    .search-left {
+
+        width: 20%;
+        height: auto;
+
+    }
+
     .text-about-store {
 
         display: flex;
         width: 100%;
         flex-flow: row wrap;
         background-color: rgba(167, 185, 153, 1);
-        height: 10vh;
+        height: 6vh;
         justify-content: center;
         align-items: center;
 
@@ -1494,7 +1332,7 @@
 
     .text-store h1 {
 
-        font-size: 55px;
+        font-size: 45px;
         text-align: center;
         margin: 0% 0%;
         color: white;
@@ -1511,45 +1349,92 @@
     .icons-filter {
 
         display: flex;
-        width: 100%;
-        height: 1vh;
-        flex-flow: row wrap;
-        margin-bottom: 1%;
+        width: 100vw;
+        height: 6vh;
+        margin-bottom: 0%;
         background-color: rgba(246, 202, 199, 1);
-        justify-content: end;
-        align-items: end;
 
     }
 
-    .filter.left {
+    .filter-left {
 
-        width: 15%;
-        margin-left: 5%;
+        display: flex;
+        width: 70%;
+        height: 6vh;
 
     }
 
-    .filter-center {
-        width: 60%;
+    .button-search {
+        margin-left: 10%;
+        margin-top: 3%;
+        padding: 0%;
+        width: 28vw;
+        height: 3vh;
+        font-size: 15px;
+        border-radius: 0%;
+        border: 1px solid black;
+
+
+    }
+
+    .button-click {
+
+        margin-top: 3%;
+        width: 8vw;
+        height: 3vh;
+        cursor: pointer;
+        border: 1px solid black;
+        background-color: rgba(167, 185, 153, 1);
+
+    }
+
+    .button-click img {
+
+        width: 2vw;
         text-align: center;
+        margin: 0;
+
     }
 
-    .filter-center img {
+    .buttom-clear {
 
         display: none;
+        margin-top: 3%;
+        margin-left: 1%;
+        height: 3vh;
+        border: none;
+        background-color: white;
 
     }
+
+    .buttom-clear p {
+
+        color: red;
+        padding: 0;
+        margin: 0;
+    }
+
+    .localizar {
+
+        margin-left: 5%;
+        margin-top: 4%;
+        font-size: 12px;
+
+    }
+
 
     .filter-right {
 
-        width: 10%;
+        width: 30%;
+        height: 6vh;
         margin-right: 3%;
-        margin-top: 1%;
 
     }
 
     .button-filter {
 
         padding: 0px 0px;
+        margin: 5% 10%;
         text-align: end;
         border: none;
         cursor: pointer;
@@ -1559,7 +1444,7 @@
 
     .button-filter img {
 
-        width: 50%;
+        width: 30%;
 
     }
 
@@ -1573,6 +1458,7 @@
         margin-top: 0%;
         justify-content: center;
         align-items: center;
+
 
     }
 
@@ -1773,98 +1659,6 @@
 
     }
 
-    .search-left {
-
-        display: flex;
-        width: 20%;
-        height: auto;
-
-
-    }
-
-    .search-left p {
-
-        margin-left: 5%;
-        font-size: 10px;
-
-    }
-
-    .button-search {
-        margin-left: 5%;
-        padding: 0%;
-        width: 20vw;
-        border: 1px solid black;
-        height: 3.5vh;
-        font-size: 12px;
-
-    }
-
-    .button-click {
-
-        width: 6vw;
-        height: 3.5vh;
-        cursor: pointer;
-        border: 1px solid black;
-        background-color: rgba(167, 185, 153, 1);
-
-    }
-
-    .button-click img{
-
-        width: 1.5vw;
-        text-align: center;
-        margin: 0;
-
-    }
-
-    .buttom-clear {
-
-        padding: 0;
-        display: none;
-        margin-left: 2%;
-        height: 20%;
-        border: none;
-        text-align: center;
-        cursor: pointer;
-        background-color: white;
-
-    }
-
-    .buttom-clear p{
-
-        color: red;
-        padding: 0;
-        margin: 0;
-        font-size: 15px;
-    }
-
-    .localizar {
-
-        position: absolute;
-        top: 200%;
-
-    }
-
-
-    .apagar-filtro {
-
-        position: absolute;
-        width: 5vw;
-        height: 2vh;
-        cursor: pointer;
-        top: 60%;
-        left: 19.8%;
-        background-color: white;
-    }
-
-    .apagar-filtro p{
-
-        font-size: 15px;
-        color: red;
-        margin: 0;
-
-    }
-
     .logo {
 
         width: 60%;
@@ -1887,13 +1681,20 @@
 
     }
 
+    .search-left {
+
+        width: 20%;
+        height: auto;
+
+    }
+
     .text-about-store {
 
         display: flex;
         width: 100%;
         flex-flow: row wrap;
         background-color: rgba(167, 185, 153, 1);
-        height: 10vh;
+        height: 8vh;
         justify-content: center;
         align-items: center;
 
@@ -1932,45 +1733,92 @@
     .icons-filter {
 
         display: flex;
-        width: 100%;
-        height: 1vh;
-        flex-flow: row wrap;
-        margin-bottom: 1%;
+        width: 100vw;
+        height: 8vh;
+        margin-bottom: 0%;
         background-color: rgba(246, 202, 199, 1);
-        justify-content: end;
-        align-items: end;
 
     }
 
-    .filter.left {
+    .filter-left {
 
-        width: 15%;
-        margin-left: 5%;
+        display: flex;
+        width: 70%;
+        height: 6vh;
 
     }
 
-    .filter-center {
-        width: 60%;
+    .button-search {
+        margin-left: 8.5%;
+        margin-top: 3%;
+        padding: 0%;
+        width: 28vw;
+        height: 3.8vh;
+        font-size: 15px;
+        border-radius: 0%;
+        border: 1px solid black;
+
+
+    }
+
+    .button-click {
+
+        margin-top: 3%;
+        width: 8vw;
+        height: 3.8vh;
+        cursor: pointer;
+        border: 1px solid black;
+        background-color: rgba(167, 185, 153, 1);
+
+    }
+
+    .button-click img {
+
+        width: 2vw;
         text-align: center;
+        margin: 0;
+
     }
 
-    .filter-center img {
+    .buttom-clear {
 
         display: none;
+        margin-top: 3%;
+        margin-left: 1%;
+        height: 3vh;
+        border: none;
+        background-color: white;
 
     }
+
+    .buttom-clear p {
+
+        color: red;
+        padding: 0;
+        margin: 0;
+    }
+
+    .localizar {
+
+        margin-left: 2%;
+        margin-top: 3.5%;
+        font-size: 20px;
+
+    }
+
 
     .filter-right {
 
-        width: 7%;
+        width: 30%;
+        height: 6vh;
         margin-right: 3%;
-        margin-top: 1%;
 
     }
 
     .button-filter {
 
         padding: 0px 0px;
+        margin: 5% 10%;
         text-align: end;
         border: none;
         cursor: pointer;
@@ -1980,7 +1828,7 @@
 
     .button-filter img {
 
-        width: 50%;
+        width: 20%;
 
     }
 
