@@ -196,7 +196,7 @@
 
         display: flex;
         width: 100vw;
-        height: 4vh;
+        height: 5vh;
         margin-bottom: 0%;
         background-color: rgba(246, 202, 199, 1);
 
@@ -249,6 +249,7 @@
         margin-left: 1%;
         height: 3vh;
         border: none;
+        cursor: pointer;
         background-color: rgba(246, 202, 199, 1);
 
     }
@@ -635,6 +636,7 @@
         margin-top: 3%;
         margin-left: 1%;
         height: 3vh;
+        cursor: pointer;
         border: none;
         background-color: rgba(246, 202, 199, 1);
 
@@ -1018,6 +1020,7 @@
         margin-top: 4%;
         margin-left: 1%;
         height: 3vh;
+        cursor: pointer;
         border: none;
         background-color: rgba(246, 202, 199, 1);
 
@@ -1402,6 +1405,7 @@
         margin-top: 3%;
         margin-left: 1%;
         height: 3vh;
+        cursor: pointer;
         border: none;
         background-color: rgba(246, 202, 199, 1);
 
@@ -1787,6 +1791,7 @@
         margin-top: 3%;
         margin-left: 1%;
         height: 3vh;
+        cursor: pointer;
         border: none;
         background-color: rgba(246, 202, 199, 1);
 
