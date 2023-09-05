@@ -1699,7 +1699,7 @@
         width: 100%;
         flex-flow: row wrap;
         background-color: rgba(167, 185, 153, 1);
-        height: 8vh;
+        height: 10vh;
         justify-content: center;
         align-items: center;
 
@@ -1739,9 +1739,10 @@
 
         display: flex;
         width: 100vw;
-        height: 8vh;
+        height: 10vh;
         margin-bottom: 0%;
         background-color: rgba(246, 202, 199, 1);
+
 
     }
 
@@ -1779,7 +1780,7 @@
 
     .button-click img {
 
-        width: 2vw;
+        width: 1.6vw;
         text-align: center;
         margin: 0;
 

@@ -120,7 +120,6 @@ function LimparBoneca() {
     // Mostra todas as divs de produtos
     divsProdutos.forEach(function(div) {
       div.style.display = "block";
-      div.style.marginTop = "0"; // Define a margem superior de volta para 0
 
     });
 
@@ -142,3 +141,10 @@ if (window.screen.lockOrientationUniversal("portrait")) {
     console.log("Orientation lock failed.");
 }
 
+/*function Mudarcor() {
+
+    var cor = document.getElementById("corcor")
+
+        cor.style.display = "block";
+        cor.style.width = "300px"; // Define a margem superior de volta para 0
+}*/
