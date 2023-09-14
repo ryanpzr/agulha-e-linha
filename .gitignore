@@ -1,4 +1,3 @@
-/backend/*.json
-/frontend/*.json
-/backend/node_modules/
+*.json
+node_modules/
 *.vscode
