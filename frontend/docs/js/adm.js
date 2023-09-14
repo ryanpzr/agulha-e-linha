@@ -142,6 +142,7 @@ function irInstagram() {
 
 }
 
+
 /*
     ////////////// PROCURAR SOLUÇÃO PARA A PESQUISA //////////////
 
