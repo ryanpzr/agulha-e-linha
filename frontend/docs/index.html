@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agulha e linha</title>
+    <link href="/frontend/docs/css/index.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <nav class="top-site">
+
+        <div class="discount">
+
+            <h2>EM ATÉ 6X NO CARTÃO!</h2>
+
+        </div>
+
+
+        <div class="header-texts">
+            <a href="./medidas.html">MEDIDAS</a>
+            <a href="./sobre.html">SOBRE</a>
+
+        </div>
+
+        <div class="header-icons">
+            <button class="button-midias" id="irInstagram"><img src="./img/instagram.png"></button>
+            <button class="button-midias" id="irFacebook"><img src="./img/facebook.png"></button>
+            <button class="button-midias" onclick="comprarBoneca()"><img src="./img/whatsapp.png"></button>
+
+        </div>
+
+
+    </nav>
+
+    <header class="mid-site">
+
+        <div class="search-left">
+
+
+
+        </div>
+
+        <div class="logo">
+
+            <img src="./img/logo.jpg">
+
+        </div>
+
+        <div class="search-right"></div>
+
+    </header>
+
+    <section class="text-about-store">
+
+        <div class="text-store-left">
+
+
+
+        </div>
+
+        <div class="text-store">
+
+            <h1>LOJA</h1>
+
+        </div>
+
+        <div class="text-store-right"></div>
+
+    </section>
+
+    <section class="icons-filter">
+
+        <div class="filter-left">
+
+
+            <input class="button-search" id="searchBoneca" type="text" placeholder="Pesquisar Boneca...">
+            <button class="button-click" onclick="VerificarBoneca()"><img src="./img/Untitled.png"></button>
+            <button class="buttom-clear" id="clearBoneca" onclick="LimparBoneca()">
+                <p>X</p>
+            </button>
+            <p class="localizar" id="teste"></p>
+
+        </div>
+
+        <div class="filter-right">
+
+            <button class="button-filter" id="orderPrice"><img src="./img/filter.png"></button>
+
+        </div>
+
+    </section>
+
+    <section class="cards-toy" id="cards-toy"></section>
+
+    <script src="/frontend/docs/js/adm.js"></script>
+
+
+</body>
+
+</html>

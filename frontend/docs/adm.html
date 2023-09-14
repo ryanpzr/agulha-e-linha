@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/frontend/docs/css/adm.css" />
+    <title>Área de Administrador</title>
+</head>
+
+
+<body>
+
+    <a href="/frontend/docs/index.html">voltar</a>
+
+    <div>
+        <h1>ADM CADASTRO</h1>
+
+    </div>
+
+    <form id="addItemForm">
+        <input type="text" id="nome" name="nome" placeholder="Digite o título" required>
+        <input type="text" id="subnome" name="subnome" placeholder="Digite o sub-título" required>
+        <input type="text" id="preco" name="preco" placeholder="Digite o preço" required>
+        <input type="text" id="subpreco" name="subpreco" placeholder="Digite o preço parcelado" required> <br>
+        <button type="submit" id="add" value="Cadastrar">Adicionar</button>
+    </form>
+
+    <div>
+        <h1>DELETAR</h1>
+
+    </div>
+
+    <form id="deleteItemForm">
+        <input type="text" id="nomeExcluir" name="nomeExcluir" placeholder="Digite o título" required> <br>
+        <button type="submit" id="dlt" value="Deletar">Deletar</button>
+    </form>
+
+    <script src="/frontend/docs/js/adm.js"></script>
+
+</body>
+
+</html>
