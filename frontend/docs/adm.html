@@ -40,7 +40,8 @@
 
     </div>
 
-    <form id="addItemForm">
+    <form id="addItemForm" action="/profile" method="post" enctype="multipart/form-data">
+        <input type="file" id="foto" name="foto"> <br>
         <input type="text" id="nome" name="nome" placeholder="Digite o título" required>
         <input type="text" id="subnome" name="subnome" placeholder="Digite o sub-título" required> <br>
         <input type="text" id="preco" name="preco" placeholder="Digite o preço" required>
@@ -62,6 +63,7 @@
 
     <a href="/frontend/docs/index.html">voltar</a>
 
+    <div class="cards-toy" id="cards-toy"></div>
 
     <script src="/frontend/docs/js/adm.js"></script>
 

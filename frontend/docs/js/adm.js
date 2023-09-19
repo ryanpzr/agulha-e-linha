@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Função para carregar todas as bonecas ao carregar a página
     function carregarTodasBonecas() {
         // Solicita todas as bonecas ao servidor
-        fetch('http://localhost:3000/bonecas')
+        fetch('http://localhost:3000/upload', {
+            method: 'GET' // Especifica o método HTTP como GET
+        })
             .then(response => {
                 if (response.ok) {
                     return response.json();
@@ -35,21 +37,20 @@ document.addEventListener('DOMContentLoaded', function () {
         const valorSubTitulo = document.getElementById('subnome').value;
         const valorPreco = document.getElementById('preco').value;
         const valorSubPreco = document.getElementById('subpreco').value;
+        const valorFoto = document.getElementById('foto').files[0]; // Obtém o arquivo de imagem
 
-        if (valorTitulo && valorSubTitulo && valorPreco && valorSubPreco) {
-            const novaBoneca = {
-                nome: valorTitulo,
-                subnome: valorSubTitulo,
-                preco: valorPreco,
-                subpreco: valorSubPreco
-            };
+        if (valorTitulo && valorSubTitulo && valorPreco && valorSubPreco && valorFoto) {
+            const formData = new FormData();
 
-            fetch('http://localhost:3000/bonecas', {
+            formData.append('nome', valorTitulo);
+            formData.append('subnome', valorSubTitulo);
+            formData.append('preco', valorPreco);
+            formData.append('subpreco', valorSubPreco);
+            formData.append('foto', valorFoto);
+
+            fetch('http://localhost:3000/upload', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(novaBoneca)
+                body: formData // Envie o FormData que inclui a imagem
             })
                 .then(response => {
                     if (response.ok) {
@@ -71,16 +72,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
             addItemForm.reset();
         } else {
-            alert('Preencha todos os campos antes de adicionar o item.');
+            alert('Preencha todos os campos e selecione uma imagem antes de adicionar o item.');
         }
     });
 
-    // Função para criar um elemento HTML para exibir uma boneca
     function criarElementoBoneca(boneca) {
         const novoItem = document.createElement('div');
         novoItem.classList.add('cardContent');
 
+        // Use a URL dinâmica com base no nome da boneca
+        const imageUrl = `http://localhost:3000/imagem/${boneca.nome}`;
+
         novoItem.innerHTML = `
+            <img class="image" src="${imageUrl}" />
             <h2>${boneca.nome}</h2>
             <p class="second-text-description">${boneca.subnome}</p>
             <p class="full-price">R$${boneca.preco}</p>
@@ -90,42 +94,44 @@ document.addEventListener('DOMContentLoaded', function () {
 
         return novoItem;
     }
-});
 
-document.getElementById("deleteItemForm").addEventListener("submit", function (event) {
-    event.preventDefault(); // Impede o envio padrão do formulário
 
-    const nome = document.getElementById("nomeExcluir").value;
-    // Você pode adicionar alguma validação aqui para garantir que o campo nome não esteja vazio
+    document.getElementById("deleteItemForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Impede o envio padrão do formulário
 
-    // Aqui você pode enviar uma solicitação para o servidor para executar a exclusão
-    // Por exemplo, usando o fetch para enviar uma solicitação DELETE para a rota do servidor
+        const nome = document.getElementById("nomeExcluir").value;
 
-    fetch('http://localhost:3000/bonecas', {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ nome }),
-    })
-        .then(response => {
-            if (response.ok) {
-                alert("Item deletado com sucesso!");
-                document.getElementById("nomeExcluir").value = "";
+        // Você pode adicionar alguma validação aqui para garantir que o campo nome não esteja vazio
 
-            } else {
+        // Aqui você pode enviar uma solicitação para o servidor para executar a exclusão
+        // Por exemplo, usando o fetch para enviar uma solicitação DELETE para a rota do servidor
+
+        fetch('http://localhost:3000/upload', {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ nome }),
+        })
+            .then(response => {
+                if (response.ok) {
+                    alert("Item deletado com sucesso!");
+                    document.getElementById("nomeExcluir").value = "";
+                } else {
+                    alert("Erro ao deletar o item.");
+                    document.getElementById("nomeExcluir").value = "";
+                }
+            })
+            .catch(error => {
+                console.error("Erro ao fazer a solicitação:", error);
                 alert("Erro ao deletar o item.");
                 document.getElementById("nomeExcluir").value = "";
-
-            }
-        })
-        .catch(error => {
-            console.error("Erro ao fazer a solicitação:", error);
-            alert("Erro ao deletar o item.");
-            document.getElementById("nomeExcluir").value = "";
-
-        });
+            });
+    });
 });
+
+
+
 
 function comprarBoneca() {
     window.location.href = 'https://api.whatsapp.com/send?phone=5551992776015&text=Ol%C3%A1,%20vim%20atrav%C3%A9s%20do%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20bonecas!%20%F0%9F%A5%B0';

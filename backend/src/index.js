@@ -1,7 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const mysql = require('mysql2'); // Importe o módulo MySQL2
+const mysql = require('mysql2');
+const multer = require('multer')
+const storage = multer.memoryStorage(); // Use memory storage para salvar os dados da imagem em memória.
+const upload = multer({ storage: storage });
+
+
 
 // Configuração do banco de dados
 const db = mysql.createConnection({
@@ -22,9 +27,10 @@ db.connect((err) => {
 const server = express();
 server.use(cors());
 server.use(bodyParser.json());
+server.use(express.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 
-server.get('/bonecas', (req, res) => {
+server.get('/upload', (req, res) => {
     // Consulta o banco de dados para obter todas as bonecas
     const sql = 'SELECT * FROM bonecas';
     db.query(sql, (err, result) => {
@@ -38,7 +44,7 @@ server.get('/bonecas', (req, res) => {
     });
 });
 
-server.delete('/bonecas', (req, res) => {
+server.delete('/upload', (req, res) => {
     const { nome } = req.body;
     const sql = 'DELETE FROM bonecas WHERE nome = ?';
 
@@ -58,13 +64,18 @@ server.delete('/bonecas', (req, res) => {
     });
 });
 
-server.post('/bonecas', (req, res) => {
+server.post('/upload', upload.single('foto'), (req, res) => {
     const { nome, subnome, preco, subpreco } = req.body;
-    const novaBoneca = { nome, subnome, preco, subpreco };
+    const foto = req.file; // Obtém o arquivo de imagem
 
-    // Insira a nova boneca no banco de dados
-    const sql = 'INSERT INTO bonecas (nome, subnome, preco, subpreco) VALUES (?, ?, ?, ?)';
-    const values = [novaBoneca.nome, novaBoneca.subnome, novaBoneca.preco, novaBoneca.subpreco];
+    // Certifique-se de tratar o erro se a imagem não for enviada
+    if (!foto) {
+        return res.status(400).json({ error: 'Nenhuma imagem enviada' });
+    }
+
+    // Insira a nova boneca no banco de dados, incluindo a imagem
+    const sql = 'INSERT INTO bonecas (nome, subnome, preco, subpreco, foto) VALUES (?, ?, ?, ?, ?)';
+    const values = [nome, subnome, preco, subpreco, foto.buffer]; // Use foto.buffer para os dados binários da imagem
 
     db.query(sql, values, (err, result) => {
         if (err) {
@@ -72,10 +83,30 @@ server.post('/bonecas', (req, res) => {
             return res.status(500).json({ error: 'Erro ao salvar a boneca' });
         } else {
             console.log('Boneca inserida com sucesso no banco de dados');
-            novaBoneca.id = result.insertId; // Obtenha o ID gerado para a boneca
+            const novaBoneca = { nome, subnome, preco, subpreco, foto: foto.buffer, id: result.insertId };
 
             // Envie uma resposta com a nova boneca, incluindo o ID gerado
             return res.json(novaBoneca);
+        }
+    });
+});
+
+server.get('/imagem/:nome', (req, res) => {
+    const { nome } = req.params;
+
+    // Consulta o banco de dados para obter a foto com base no nome
+    const sql = 'SELECT foto FROM bonecas WHERE nome = ?';
+    db.query(sql, [nome], (err, result) => {
+        if (err) {
+            console.error('Erro ao buscar a imagem no banco de dados:', err);
+            return res.status(500).json({ error: 'Erro ao buscar a imagem' });
+        } else if (result.length === 0) {
+            return res.status(404).json({ message: 'Boneca não encontrada' });
+        } else {
+            // Retorna a imagem como resposta
+            const imagem = result[0].foto;
+            res.contentType('image/jpeg'); // Define o tipo de conteúdo da resposta como imagem JPEG
+            return res.end(imagem);
         }
     });
 });
