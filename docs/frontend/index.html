@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medidas</title>
-    <link href="/frontend/docs/medidas.css" rel="stylesheet" />
+    <title>Agulha e linha</title>
+    <link href="/docs/frontend/index.css" rel="stylesheet" />
 </head>
 
-<body>
+<body id="pages">
 
     <nav class="top-site">
 
@@ -20,15 +20,15 @@
 
 
         <div class="header-texts">
+            <a href="./medidas.html">MEDIDAS</a>
             <a href="./sobre.html">SOBRE</a>
-            <a href="./index.html">MENU</a>
+
         </div>
 
         <div class="header-icons">
             <button class="button-midias" id="irInstagram"><img src="./img/instagram.png"></button>
             <button class="button-midias" id="irFacebook"><img src="./img/facebook.png"></button>
-            <button class="button-midias" id="irWhatsapp"><img src="./img/whatsapp.png"></button>
-            <script src="./js/index.js"></script>
+            <button class="button-midias" onclick="comprarBoneca()"><img src="./img/whatsapp.png"></button>
 
         </div>
 
@@ -37,7 +37,11 @@
 
     <header class="mid-site">
 
-        <div class="search-left"></div>
+        <div class="search-left">
+
+            <a href="/frontend/docs/adm.html">Ir adm</a>
+
+        </div>
 
         <div class="logo">
 
@@ -51,11 +55,15 @@
 
     <section class="text-about-store">
 
-        <div class="text-store-left"></div>
+        <div class="text-store-left">
+
+
+
+        </div>
 
         <div class="text-store">
 
-            <h1>MEDIDAS</h1>
+            <h1>LOJA</h1>
 
         </div>
 
@@ -63,7 +71,20 @@
 
     </section>
 
-    <section class="content"></section>
+    <br>
+
+    <form id="addItemForm">
+        <!-- Nenhum conteúdo dentro do formulário -->
+    </form>
+
+    <form id="deleteItemForm">
+        <!-- Nenhum conteúdo dentro do formulário -->
+    </form>
+
+    <section class="cards-toy" id="cards-toy"></section>
+
+    <script src="/docs/frontend/adm.js"></script>
+
 
 </body>
 
