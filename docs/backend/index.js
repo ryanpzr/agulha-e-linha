@@ -30,7 +30,7 @@ server.use(bodyParser.json());
 server.use(express.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 
-server.get('/upload', (req, res) => {
+server.get('/get', (req, res) => {
     // Consulta o banco de dados para obter todas as bonecas
     const sql = 'SELECT * FROM bonecas';
     db.query(sql, (err, result) => {
@@ -44,7 +44,7 @@ server.get('/upload', (req, res) => {
     });
 });
 
-server.delete('/upload', (req, res) => {
+server.delete('/delete', (req, res) => {
     const { nome } = req.body;
     const sql = 'DELETE FROM bonecas WHERE nome = ?';
 
