@@ -112,6 +112,6 @@ server.get('/imagem/:nome', (req, res) => {
     });
 });
 
-server.listen(3000, () => {
+server.listen(3000 || process.env.PORT, () => {
     console.log('Servidor rodando na porta 3000');
 });
