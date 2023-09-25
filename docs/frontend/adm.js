@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Função para carregar todas as bonecas ao carregar a página
     function carregarTodasBonecas() {
         // Solicita todas as bonecas ao servidor
-        fetch('https://agulha-e-linha-production.up.railway.app:3000/upload', {
+        fetch('https://agulha-e-linha.railway.internal:3000/upload', {
             method: 'GET' // Especifica o método HTTP como GET
         })
             .then(response => {
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
             formData.append('subpreco', valorSubPreco);
             formData.append('foto', valorFoto);
 
-            fetch('https://agulha-e-linha-production.up.railway.app:3000/upload', {
+            fetch('https://agulha-e-linha.railway.internal:3000/upload', {
                 method: 'POST',
                 body: formData // Envie o FormData que inclui a imagem
             })
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
         novoItem.classList.add('cardContent');
 
         // Use a URL dinâmica com base no nome da boneca
-        const imageUrl = `https://agulha-e-linha-production.up.railway.app:3000/imagem/${boneca.nome}`;
+        const imageUrl = `https://agulha-e-linha.railway.internal:3000/imagem/${boneca.nome}`;
 
         novoItem.innerHTML = `
             <img class="image" src="${imageUrl}" />
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Aqui você pode enviar uma solicitação para o servidor para executar a exclusão
         // Por exemplo, usando o fetch para enviar uma solicitação DELETE para a rota do servidor
 
-        fetch('https://agulha-e-linha-production.up.railway.app:3000/upload', {
+        fetch('https://agulha-e-linha.railway.internal:3000/upload', {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
