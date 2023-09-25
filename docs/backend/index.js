@@ -46,7 +46,7 @@ server.get('/get', (req, res) => {
 });
 
 server.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://agulha-e-linha-production.up.railway.app/');
+    res.setHeader('Access-Control-Allow-Origin', 'agulha-e-linha.up.railway.app/');
     // Outros cabeçalhos CORS, métodos permitidos, etc.
     next();
 });
