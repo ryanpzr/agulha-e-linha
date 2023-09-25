@@ -26,6 +26,7 @@ db.connect((err) => {
 });
 
 const server = express();
+server.use(cors());
 server.use(bodyParser.json());
 server.use(express.json());
 server.use(bodyParser.urlencoded({ extended: true }));
@@ -42,6 +43,12 @@ server.get('/get', (req, res) => {
             return res.json(result);
         }
     });
+});
+
+server.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
+    // Outros cabeçalhos CORS, métodos permitidos, etc.
+    next();
 });
 
 server.delete('/delete', (req, res) => {
@@ -111,6 +118,7 @@ server.get('/imagem/:nome', (req, res) => {
     });
 });
 
-server.listen(3000 || process.env.PORT, () => {
-    console.log('Servidor rodando na porta 3000');
+const port = process.env.PORT || 3000;
+server.listen(port, () => {
+    console.log(`Servidor está ouvindo na porta ${port}`);
 });
