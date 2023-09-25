@@ -10,10 +10,10 @@ const upload = multer({ storage: storage });
 
 // Configuração do banco de dados
 const db = mysql.createConnection({
-    host: 'localhost',
+    host: 'containers-us-west-201.railway.app',
     user: 'root',
-    password: '12345',
-    database: 'dbApiBonecas'
+    password: 'yPe935K2TDtnpcOsNf0m',
+    database: 'railway'
 });
 
 db.connect((err) => {
