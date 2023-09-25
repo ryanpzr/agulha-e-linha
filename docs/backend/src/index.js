@@ -13,7 +13,8 @@ const db = mysql.createConnection({
     host: 'containers-us-west-201.railway.app',
     user: 'root',
     password: 'yPe935K2TDtnpcOsNf0m',
-    database: 'railway'
+    database: 'railway',
+    port: '6516'
 });
 
 db.connect((err) => {
