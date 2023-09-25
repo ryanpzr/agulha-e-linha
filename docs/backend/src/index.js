@@ -6,15 +6,15 @@ const multer = require('multer')
 const storage = multer.memoryStorage(); // Use memory storage para salvar os dados da imagem em memória.
 const upload = multer({ storage: storage });
 
-
+require('dotenv').config(); // Carrega as variáveis de ambiente do arquivo .env
 
 // Configuração do banco de dados
 const db = mysql.createConnection({
-    host: 'containers-us-west-201.railway.app',
-    user: 'root',
-    password: 'yPe935K2TDtnpcOsNf0m',
-    database: 'railway',
-    port: '6516'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DATABASE,
+    port: process.env.DB_PORT
 });
 
 db.connect((err) => {
