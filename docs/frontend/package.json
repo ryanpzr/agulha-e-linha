@@ -1,0 +1,11 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "start-frontend": "http-server"
+  },
+  "author": "",
+  "license": "ISC"
+}
