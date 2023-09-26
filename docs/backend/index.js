@@ -30,6 +30,11 @@ server.use(cors());
 server.use(bodyParser.json());
 server.use(express.json());
 server.use(bodyParser.urlencoded({ extended: true }));
+server.use((req, res, next) => {
+    res.setHeader('Content-Security-Policy', "default-src 'none'; style-src 'self' fonts.googleapis.com");
+    res.setHeader('Access-Control-Allow-Origin', 'agulha-e-linha.up.railway.app/');
+    next();
+});
 
 server.get('/get', (req, res) => {
     // Consulta o banco de dados para obter todas as bonecas
@@ -43,12 +48,6 @@ server.get('/get', (req, res) => {
             return res.json(result);
         }
     });
-});
-
-server.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'agulha-e-linha.up.railway.app/');
-    // Outros cabeçalhos CORS, métodos permitidos, etc.
-    next();
 });
 
 server.delete('/delete', (req, res) => {
