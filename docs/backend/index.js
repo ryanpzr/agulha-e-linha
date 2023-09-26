@@ -117,8 +117,7 @@ server.get('/imagem/:nome', (req, res) => {
     });
 });
 
-const porta = process.env.PORT || 3000; // Use a porta fornecida pelo Railway ou 3000 como padrão
-server.listen(porta, () => {
-    console.log(`Servidor está ouvindo na porta ${porta}`);
+app.listen(3000, () => {
+    console.log(`Servidor está ouvindo na porta 3000`);
 });
 
