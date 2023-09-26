@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise'); // Usando o mysql2/promise para suportar consultas assíncronas.
 const multer = require('multer');
 const storage = multer.memoryStorage(); // Use memory storage para salvar os dados da imagem em memória.
 const upload = multer({ storage: storage });
@@ -9,23 +9,6 @@ const https = require('https');
 const fs = require('fs');
 
 require('dotenv').config(); // Carrega as variáveis de ambiente do arquivo .env
-
-// Configuração do banco de dados
-const db = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DATABASE,
-    port: process.env.DB_PORT
-});
-
-db.connect((err) => {
-    if (err) {
-        console.error('Erro ao conectar ao banco de dados MySQL:', err);
-    } else {
-        console.log('Conexão bem-sucedida ao banco de dados MySQL');
-    }
-});
 
 const server = express();
 server.use(cors());
@@ -38,38 +21,42 @@ server.use((req, res, next) => {
     next();
 });
 
-server.get('/get', (req, res) => {
-    // Consulta o banco de dados para obter todas as bonecas
-    const sql = 'SELECT * FROM bonecas';
-    db.query(sql, (err, result) => {
-        if (err) {
-            console.error('Erro ao buscar bonecas no banco de dados:', err);
-            return res.status(500).json({ error: 'Erro ao buscar bonecas' });
-        } else {
-            // Retorna todas as bonecas encontradas no banco de dados
-            return res.json(result);
-        }
-    });
+// Cria um pool de conexões para o MySQL
+const dbPool = mysql.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DATABASE,
+    port: process.env.DB_PORT,
+    connectionLimit: 10 // Ajuste o limite de conexões conforme necessário
 });
 
-server.delete('/delete', (req, res) => {
+server.get('/get', async (req, res) => {
+    try {
+        const [rows] = await dbPool.execute('SELECT * FROM bonecas');
+        return res.json(rows);
+    } catch (err) {
+        console.error('Erro ao buscar bonecas no banco de dados:', err);
+        return res.status(500).json({ error: 'Erro ao buscar bonecas' });
+    }
+});
+
+server.delete('/delete', async (req, res) => {
     const { nome } = req.body;
     const sql = 'DELETE FROM bonecas WHERE nome = ?';
 
-    db.query(sql, [nome], (err, result) => {
-        if (err) {
-            console.error('Erro ao excluir a boneca:', err);
-            res.status(500).json({ error: 'Erro interno do servidor' });
-            return;
-        }
+    try {
+        const [result] = await dbPool.execute(sql, [nome]);
 
         if (result.affectedRows === 0) {
-            // Se nenhum registro foi excluído, significa que o nome não foi encontrado
             res.status(404).json({ message: 'Boneca não encontrada' });
         } else {
             res.json({ message: 'Boneca excluída com sucesso' });
         }
-    });
+    } catch (err) {
+        console.error('Erro ao excluir a boneca:', err);
+        res.status(500).json({ error: 'Erro interno do servidor' });
+    }
 });
 
 server.post('/upload', upload.single('foto'), (req, res) => {

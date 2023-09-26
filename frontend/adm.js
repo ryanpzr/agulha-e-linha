@@ -54,13 +54,15 @@ document.addEventListener('DOMContentLoaded', function () {
             })
                 .then(response => {
                     if (response.ok) {
+                        alert("Item adicionado com sucesso!")
+                        console.log('Os dados foram enviados ao servidor com sucesso!')
                         return response.json();
                     } else {
                         throw new Error('Erro ao enviar dados para o servidor.');
                     }
                 })
                 .then(data => {
-                    // Os dados foram enviados com sucesso, você pode atualizar a interface aqui.
+                    // Os dados foram enviados com sucesso, atualizar a interface.
                     const novoItem = criarElementoBoneca(data);
                     main.appendChild(novoItem);
 
@@ -135,7 +137,7 @@ function comprarBoneca() {
 
 }
 
-function irFacebbok() {
+function irFacebook() {
     window.location.href = 'https://www.facebook.com/';
 
 }
