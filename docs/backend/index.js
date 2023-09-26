@@ -32,7 +32,7 @@ server.use(express.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use((req, res, next) => {
     res.setHeader('Content-Security-Policy', "default-src 'none'; style-src 'self' fonts.googleapis.com");
-    res.setHeader('Access-Control-Allow-Origin', 'agulha-e-linha.up.railway.app/');
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Permitir acesso de qualquer origem
     next();
 });
 
@@ -117,7 +117,7 @@ server.get('/imagem/:nome', (req, res) => {
     });
 });
 
-const porta = process.env.PORT || 3000; // Use a porta fornecida pelo Railway ou 3000 como padrão
+const porta = process.env.PORT || 2000; // Use a porta fornecida pelo Railway ou 3000 como padrão
 server.listen(porta, () => {
     console.log(`Servidor está ouvindo na porta ${porta}`);
 });
