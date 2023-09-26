@@ -156,41 +156,36 @@
         justify-content: center;
         align-items: center;
 
-
     }
 
     .text-store-left {
 
-        width: 33%;
-        height: 6vh;
-
+        width: 20%;
+        height: auto;
 
     }
 
     .text-store {
 
-        width: 33%;
-        height: 6vh;
+        width: 60%;
+        text-align: center;
 
     }
 
     .text-store h1 {
 
         font-size: 30px;
-        margin-top: 7%;
-        text-align: center;
+        margin-top: 6px;
         color: white;
 
     }
 
     .text-store-right {
 
-        width: 33%;
-        height: 6vh;
-
+        width: 20%;
+        height: auto;
 
     }
-
 
     .icons-filter {
 
