@@ -117,7 +117,7 @@ server.get('/imagem/:nome', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
+server.listen(3000, () => {
     console.log(`Servidor está ouvindo na porta 3000`);
 });
 
