@@ -120,5 +120,5 @@ server.get('/imagem/:nome', (req, res) => {
 
 const port = process.env.PORT || 3000;
 server.listen(port, () => {
-    console.log(`Servidor está ouvindo na porta ${port}`);
+    console.log(`Servidor está ouvindo na porta 3000`);
 });
