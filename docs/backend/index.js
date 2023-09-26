@@ -38,12 +38,6 @@ server.use((req, res, next) => {
     next();
 });
 
-const options = {
-    key: fs.readFileSync('./frontend/certificados/server.key'),
-    cert: fs.readFileSync('./frontend/certificados/server.crt'),
-    passphrase: '',
-};
-
 const secureServer = https.createServer(options, server);
 
 server.get('/get', (req, res) => {
