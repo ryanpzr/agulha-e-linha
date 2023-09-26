@@ -2,9 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mysql = require('mysql2');
-const multer = require('multer')
+const multer = require('multer');
 const storage = multer.memoryStorage(); // Use memory storage para salvar os dados da imagem em memória.
 const upload = multer({ storage: storage });
+const https = require('https');
+const fs = require('fs');
 
 require('dotenv').config(); // Carrega as variáveis de ambiente do arquivo .env
 
@@ -35,6 +37,14 @@ server.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*'); // Permitir acesso de qualquer origem
     next();
 });
+
+const options = {
+    key: fs.readFileSync('./frontend/certificados/server.key'),
+    cert: fs.readFileSync('./frontend/certificados/server.crt'),
+    passphrase: '',
+};
+
+const secureServer = https.createServer(options, server);
 
 server.get('/get', (req, res) => {
     // Consulta o banco de dados para obter todas as bonecas
@@ -117,7 +127,7 @@ server.get('/imagem/:nome', (req, res) => {
     });
 });
 
-server.listen(3000, () => {
-    console.log(`Servidor está ouvindo na porta 3000`);
+const PORT = 3000;
+secureServer.listen(PORT, () => {
+    console.log(`Servidor HTTPS está ouvindo na porta ${PORT}`);
 });
-
