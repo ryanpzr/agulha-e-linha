@@ -4,7 +4,7 @@
   "description": "",
   "main": "",
   "scripts": {
-    "start-frontend": "http-server -p 3000"
+    "start-frontend": "http-server -p 2800"
   },
   "author": "",
   "license": "ISC",
