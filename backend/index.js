@@ -86,25 +86,29 @@ server.post('/upload', upload.single('foto'), (req, res) => {
     });
 });
 
-server.get('/imagem/:nome', (req, res) => {
+server.get('/imagem/:nome', async (req, res) => {
     const { nome } = req.params;
-
-    // Consulta o banco de dados para obter a foto com base no nome
     const sql = 'SELECT foto FROM bonecas WHERE nome = ?';
-    db.query(sql, [nome], (err, result) => {
-        if (err) {
-            console.error('Erro ao buscar a imagem no banco de dados:', err);
-            return res.status(500).json({ error: 'Erro ao buscar a imagem' });
-        } else if (result.length === 0) {
+    try {
+        const [rows] = await dbPool.execute(sql, [nome]);
+
+        if (rows.length === 0) {
             return res.status(404).json({ message: 'Boneca não encontrada' });
-        } else {
-            // Retorna a imagem como resposta
-            const imagem = result[0].foto;
-            res.contentType('image/jpeg'); // Define o tipo de conteúdo da resposta como imagem JPEG
-            return res.end(imagem);
         }
-    });
+
+        const imagem = rows[0].foto;
+
+        // Defina o tipo de conteúdo da resposta como imagem JPEG
+        res.contentType('image/jpeg');
+
+        // Envie o conteúdo da imagem como resposta
+        res.end(imagem);
+    } catch (err) {
+        console.error('Erro ao buscar imagem no banco de dados:', err);
+        return res.status(500).json({ error: 'Erro ao buscar imagem' });
+    }
 });
+
 
 const PORT = 3000;
 server.listen(PORT, () => {
