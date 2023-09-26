@@ -47,6 +47,7 @@ server.get('/get', (req, res) => {
 
 server.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', 'agulha-e-linha.up.railway.app/');
+    res.setHeader('Access-Control-Allow-Origin', 'localhost:3000/');
     // Outros cabeçalhos CORS, métodos permitidos, etc.
     next();
 });
