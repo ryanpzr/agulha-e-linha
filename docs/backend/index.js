@@ -38,8 +38,6 @@ server.use((req, res, next) => {
     next();
 });
 
-const secureServer = https.createServer(options, server);
-
 server.get('/get', (req, res) => {
     // Consulta o banco de dados para obter todas as bonecas
     const sql = 'SELECT * FROM bonecas';
@@ -122,6 +120,6 @@ server.get('/imagem/:nome', (req, res) => {
 });
 
 const PORT = 3000;
-secureServer.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`Servidor HTTPS está ouvindo na porta ${PORT}`);
 });
