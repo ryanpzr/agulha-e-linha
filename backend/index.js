@@ -72,7 +72,7 @@ server.post('/upload', upload.single('foto'), (req, res) => {
     const sql = 'INSERT INTO bonecas (nome, subnome, preco, subpreco, foto) VALUES (?, ?, ?, ?, ?)';
     const values = [nome, subnome, preco, subpreco, foto.buffer]; // Use foto.buffer para os dados binários da imagem
 
-    db.query(sql, values, (err, result) => {
+    dbPool.query(sql, values, (err, result) => {
         if (err) {
             console.error('Erro ao inserir boneca no banco de dados:', err);
             return res.status(500).json({ error: 'Erro ao salvar a boneca' });
@@ -108,7 +108,6 @@ server.get('/imagem/:nome', async (req, res) => {
         return res.status(500).json({ error: 'Erro ao buscar imagem' });
     }
 });
-
 
 const PORT = 3000;
 server.listen(PORT, () => {
