@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const mysql = require('mysql2'); // Usando o mysql2/promise para suportar consultas assíncronas.
+const mysql = require('mysql2/promise'); // Usando o mysql2/promise para suportar consultas assíncronas.
 const multer = require('multer');
 const storage = multer.memoryStorage(); // Use memory storage para salvar os dados da imagem em memória.
 const upload = multer({ storage: storage });
@@ -22,6 +22,16 @@ server.use((req, res, next) => {
 });
 
 const connection = mysql.createConnection(process.env.DATABASE_URL)
+
+connection.connect(function (err) {
+    if (err) {
+        console.error('Erro ao conectar ao banco de dados:', err);
+    } else {
+        console.log('Conexão com o banco de dados bem-sucedida');
+
+    }
+});
+
 
 
 server.get('/get', async (req, res) => {
