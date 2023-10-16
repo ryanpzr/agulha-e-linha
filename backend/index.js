@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const mysql = require('mysql2/promise'); // Usando o mysql2/promise para suportar consultas assíncronas.
+const mysql = require('mysql2'); // Usando o mysql2/promise para suportar consultas assíncronas.
 const multer = require('multer');
 const storage = multer.memoryStorage(); // Use memory storage para salvar os dados da imagem em memória.
 const upload = multer({ storage: storage });
@@ -21,19 +21,12 @@ server.use((req, res, next) => {
     next();
 });
 
-// Cria um pool de conexões para o MySQL
-const dbPool = mysql.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DATABASE,
-    port: process.env.DB_PORT,
-    connectionLimit: 10 // Ajuste o limite de conexões conforme necessário
-});
+const connection = mysql.createConnection(process.env.DATABASE_URL)
+
 
 server.get('/get', async (req, res) => {
     try {
-        const [rows] = await dbPool.execute('SELECT * FROM bonecas');
+        const [rows] = await connection.execute('SELECT * FROM bonecas');
         return res.json(rows);
     } catch (err) {
         console.error('Erro ao buscar bonecas no banco de dados:', err);
@@ -46,7 +39,7 @@ server.delete('/delete', async (req, res) => {
     const sql = 'DELETE FROM bonecas WHERE nome = ?';
 
     try {
-        const [result] = await dbPool.execute(sql, [nome]);
+        const [result] = await connection.execute(sql, [nome]);
 
         if (result.affectedRows === 0) {
             res.status(404).json({ message: 'Boneca não encontrada' });
@@ -72,7 +65,7 @@ server.post('/upload', upload.single('foto'), (req, res) => {
     const sql = 'INSERT INTO bonecas (nome, subnome, preco, subpreco, foto) VALUES (?, ?, ?, ?, ?)';
     const values = [nome, subnome, preco, subpreco, foto.buffer]; // Use foto.buffer para os dados binários da imagem
 
-    dbPool.query(sql, values, (err, result) => {
+    connection.query(sql, values, (err, result) => {
         if (err) {
             console.error('Erro ao inserir boneca no banco de dados:', err);
             return res.status(500).json({ error: 'Erro ao salvar a boneca' });
@@ -90,7 +83,7 @@ server.get('/imagem/:nome', async (req, res) => {
     const { nome } = req.params;
     const sql = 'SELECT foto FROM bonecas WHERE nome = ?';
     try {
-        const [rows] = await dbPool.execute(sql, [nome]);
+        const [rows] = await connection.execute(sql, [nome]);
 
         if (rows.length === 0) {
             return res.status(404).json({ message: 'Boneca não encontrada' });
