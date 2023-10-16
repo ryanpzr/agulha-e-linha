@@ -21,18 +21,14 @@ server.use((req, res, next) => {
     next();
 });
 
-const connection = mysql.createConnection(process.env.DATABASE_URL)
+let connection;
 
-connection.connect(function (err) {
-    if (err) {
-        console.error('Erro ao conectar ao banco de dados:', err);
-    } else {
-        console.log('Conexão com o banco de dados bem-sucedida');
+async function createConnection() {
+    connection = await mysql.createConnection(process.env.DATABASE_URL);
+    console.log('Conexão com o banco de dados bem-sucedida');
+}
 
-    }
-});
-
-
+createConnection();
 
 server.get('/get', async (req, res) => {
     try {
