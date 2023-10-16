@@ -21,7 +21,7 @@ server.use((req, res, next) => {
     next();
 });
 
-const connection = mysql.createPool(process.env.DATABASE_URL)
+const connection = mysql.createConnection(process.env.DATABASE_URL)
 
 connection.connect(function (err) {
     if (err) {
