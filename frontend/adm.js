@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function () {
             })
                 .then(response => {
                     if (response.ok) {
-                        alert("Item adicionado com sucesso!")
                         console.log('Os dados foram enviados ao servidor com sucesso!')
                         return response.json();
                     } else {
@@ -63,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
                 .then(data => {
                     // Os dados foram enviados com sucesso, atualizar a interface.
+                    alert("Item adicionado com sucesso!")
                     const novoItem = criarElementoBoneca(data);
                     main.appendChild(novoItem);
 
