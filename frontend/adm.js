@@ -89,8 +89,8 @@ document.addEventListener('DOMContentLoaded', function () {
             <img class="image" src="${imageUrl}" />
             <h2>${boneca.nome}</h2>
             <p class="second-text-description">${boneca.subnome}</p>
-            <p class="full-price">R$${boneca.preco}</p>
-            <p class="parceled-price">3X de ${boneca.subpreco}</p>
+            <p class="full-price">R$${boneca.preco},00</p>
+            <p class="parceled-price">em até 5X de ${boneca.subpreco},51</p>
             <button class="buttom-cards" onclick="comprarBoneca()"><img src="./img/whatsapp.png"> <span>Compre pelo WhatsApp</span></button>
         `;
 
