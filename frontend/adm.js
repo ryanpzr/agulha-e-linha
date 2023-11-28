@@ -39,6 +39,18 @@ document.addEventListener('DOMContentLoaded', function () {
         const valorSubPreco = document.getElementById('subpreco').value;
         const valorFoto = document.getElementById('foto').files[0]; // Obtém o arquivo de imagem
 
+         // Verificar se os campos de preço contêm apenas números
+    if (!validarNumerico(valorPreco) || !validarNumerico(valorSubPreco)) {
+        alert('Por favor, insira apenas números nos campos de preço.');
+        return;
+    }
+
+    // Verificar se os campos de título contêm apenas letras
+    if (!validarAlfabético(valorTitulo) || !validarAlfabético(valorSubTitulo)) {
+        alert('Por favor, insira apenas letras nos campos de título.');
+        return;
+    }
+
         if (valorTitulo && valorSubTitulo && valorPreco && valorSubPreco && valorFoto) {
             const formData = new FormData();
 
@@ -54,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function () {
             })
                 .then(response => {
                     if (response.ok) {
-                        alert("Item adicionado com sucesso!")
                         console.log('Os dados foram enviados ao servidor com sucesso!')
                         return response.json();
                     } else {
@@ -63,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
                 .then(data => {
                     // Os dados foram enviados com sucesso, atualizar a interface.
+                    alert("Item adicionado com sucesso!")
                     const novoItem = criarElementoBoneca(data);
                     main.appendChild(novoItem);
 
@@ -89,8 +101,8 @@ document.addEventListener('DOMContentLoaded', function () {
             <img class="image" src="${imageUrl}" />
             <h2>${boneca.nome}</h2>
             <p class="second-text-description">${boneca.subnome}</p>
-            <p class="full-price">R$${boneca.preco}</p>
-            <p class="parceled-price">3X de ${boneca.subpreco}</p>
+            <p class="full-price">R$${boneca.preco},00</p>
+            <p class="parceled-price">em até 5X de ${boneca.subpreco},51</p>
             <button class="buttom-cards" onclick="comprarBoneca()"><img src="./img/whatsapp.png"> <span>Compre pelo WhatsApp</span></button>
         `;
 
@@ -145,4 +157,14 @@ function irFacebook() {
 function irInstagram() {
     window.location.href = 'https://www.instagram.com/agulha_e_linha/';
 
+}
+
+// Função para validar se a string contém apenas números
+function validarNumerico(valor) {
+    return /^\d+$/.test(valor);
+}
+
+// Função para validar se a string contém apenas letras
+function validarAlfabético(valor) {
+    return /^[a-zA-Z]+$/.test(valor);
 }
