@@ -161,10 +161,11 @@ function irInstagram() {
 
 // Função para validar se a string contém apenas números
 function validarNumerico(valor) {
-    return /^\d+$/.test(valor);
+    return /^-?\d*\.?\d+$/.test(valor);
 }
+
 
 // Função para validar se a string contém apenas letras
 function validarAlfabético(valor) {
-    return /^[a-zA-Z]+$/.test(valor);
+    return /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/.test(valor);
 }
