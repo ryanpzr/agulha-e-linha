@@ -39,17 +39,16 @@ document.addEventListener('DOMContentLoaded', function () {
         const valorSubPreco = document.getElementById('subpreco').value;
         const valorFoto = document.getElementById('foto').files[0]; // Obtém o arquivo de imagem
 
-         // Verificar se os campos de preço contêm apenas números
     if (!validarNumerico(valorPreco) || !validarNumerico(valorSubPreco)) {
         alert('Por favor, insira apenas números nos campos de preço.');
         return;
     }
 
-    // Verificar se os campos de título contêm apenas letras
-    if (!validarAlfabético(valorTitulo) || !validarAlfabético(valorSubTitulo)) {
+    if (!validarAlfabetico(valorTitulo) || !validarAlfabetico(valorSubTitulo)) {
         alert('Por favor, insira apenas letras nos campos de título.');
         return;
     }
+
 
         if (valorTitulo && valorSubTitulo && valorPreco && valorSubPreco && valorFoto) {
             const formData = new FormData();
@@ -161,11 +160,10 @@ function irInstagram() {
 
 // Função para validar se a string contém apenas números
 function validarNumerico(valor) {
-    return /^-?\d*\.?\d+$/.test(valor);
+    return !isNaN(parseFloat(valor)) && isFinite(valor);
 }
 
-
 // Função para validar se a string contém apenas letras
-function validarAlfabético(valor) {
+function validarAlfabetico(valor) {
     return /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/.test(valor);
 }
