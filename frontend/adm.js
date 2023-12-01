@@ -39,17 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const valorSubPreco = document.getElementById('subpreco').value;
         const valorFoto = document.getElementById('foto').files[0]; // Obtém o arquivo de imagem
 
-    if (!validarNumerico(valorPreco) || !validarNumerico(valorSubPreco)) {
-        alert('Por favor, insira apenas números nos campos de preço.');
-        return;
-    }
-
-    if (!validarAlfabetico(valorTitulo) || !validarAlfabetico(valorSubTitulo)) {
-        alert('Por favor, insira apenas letras nos campos de título.');
-        return;
-    }
-
-
         if (valorTitulo && valorSubTitulo && valorPreco && valorSubPreco && valorFoto) {
             const formData = new FormData();
 
@@ -156,14 +145,4 @@ function irFacebook() {
 function irInstagram() {
     window.location.href = 'https://www.instagram.com/agulha_e_linha/';
 
-}
-
-// Função para validar se a string contém apenas números
-function validarNumerico(valor) {
-    return !isNaN(parseFloat(valor)) && isFinite(valor);
-}
-
-// Função para validar se a string contém apenas letras
-function validarAlfabetico(valor) {
-    return /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/.test(valor.trim());
 }
