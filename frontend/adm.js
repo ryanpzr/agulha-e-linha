@@ -165,5 +165,5 @@ function validarNumerico(valor) {
 
 // Função para validar se a string contém apenas letras
 function validarAlfabetico(valor) {
-    return /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/.test(valor);
+    return /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/.test(valor.trim());
 }
