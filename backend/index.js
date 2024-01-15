@@ -8,7 +8,7 @@ const upload = multer({ storage: storage });
 const https = require('https');
 const fs = require('fs');
 
-require('dotenv').config();
+// Não é necessário mais o dotenv neste caso, pois as variáveis de ambiente são fornecidas pelo Railway.
 
 const server = express();
 server.use(cors());
@@ -23,22 +23,38 @@ server.use((req, res, next) => {
 
 let connection;
 
+// Utilizando as variáveis de ambiente fornecidas pelo Railway diretamente
+const {
+    MYSQLDATABASE,
+    MYSQLHOST,
+    MYSQLPASSWORD,
+    MYSQLPORT,
+    MYSQLUSER,
+    MYSQL_PRIVATE_URL,
+    MYSQL_ROOT_PASSWORD,
+    MYSQL_URL
+} = process.env;
+
 async function createConnection() {
-    connection = await mysql.createConnection(process.env.DATABASE_URL);
+    // Utilizando as variáveis de ambiente fornecidas pelo Railway diretamente
+    connection = await mysql.createConnection({
+        host: MYSQLHOST,
+        user: MYSQLUSER,
+        password: MYSQLPASSWORD,
+        port: MYSQLPORT,
+        database: MYSQLDATABASE,
+    });
+
     console.log('Conexão com o banco de dados bem-sucedida');
 }
 
-// Para encerrar o servidor de forma segura e fechar a conexão com o banco de dados
-process.on('SIGINT', async () => {
-    if (connection) {
-        await connection.end();
-    }
-    process.exit(0);
-});
+// Inicializando o servidor
+startServer();
 
-// Função para inicializar o servidor
 async function startServer() {
     await createConnection();
+
+}
 
     server.get('/get', async (req, res) => {
         try {
@@ -115,6 +131,6 @@ async function startServer() {
     server.listen(PORT, () => {
         console.log(`Servidor HTTPS está ouvindo na porta ${PORT}`);
     });
-}
+
 
 startServer();
