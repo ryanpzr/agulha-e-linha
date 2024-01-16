@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors');
+const cors = require('cors');  // Adicionado
 const mysql = require('mysql2/promise');
 const multer = require('multer');
 const storage = multer.memoryStorage();
@@ -9,13 +9,20 @@ const https = require('https');
 const fs = require('fs');
 
 const server = express();
-server.use(cors());
+
+// Configuração do CORS
+const corsOptions = {
+    origin: 'https://agulha-e-linha.up.railway.app',  // Atualize com o seu domínio
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+};
+server.use(cors(corsOptions));
+
 server.use(bodyParser.json());
 server.use(express.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use((req, res, next) => {
     res.setHeader('Content-Security-Policy', "default-src 'none'; style-src 'self' fonts.googleapis.com");
-    res.setHeader('Access-Control-Allow-Origin', '*');
     next();
 });
 
