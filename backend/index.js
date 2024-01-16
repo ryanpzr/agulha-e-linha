@@ -70,18 +70,17 @@ async function startServer() {
         }
     });
 
-    // Adicionando configuração CORS específica para o método post
-    server.post('/upload', cors(corsOptions), upload.single('foto'), (req, res) => {
+    server.post('/upload', upload.single('foto'), (req, res) => {
         const { nome, subnome, preco, subpreco } = req.body;
         const foto = req.file;
-
+    
         if (!foto) {
             return res.status(400).json({ error: 'Nenhuma imagem enviada' });
         }
-
+    
         const sql = 'INSERT INTO bonecas (nome, subnome, preco, subpreco, foto) VALUES (?, ?, ?, ?, ?)';
         const values = [nome, subnome, preco, subpreco, foto.buffer];
-
+    
         connection.query(sql, values, (err, result) => {
             if (err) {
                 console.error('Erro ao inserir boneca no banco de dados:', err);
@@ -92,7 +91,7 @@ async function startServer() {
                 return res.json(novaBoneca);
             }
         });
-    });
+    });    
 
     server.get('/imagem/:nome', async (req, res) => {
         const { nome } = req.params;

@@ -51,8 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
             fetch('https://agulha-e-linha-backend-production.up.railway.app/upload', {
                 method: 'POST',
                 body: formData,
-                mode: 'no-cors', // Adicione esta linha
-                // Envie o FormData que inclui a imagem
+                mode: 'no-cors', 
             })
                 .then(response => {
                     if (response.ok) {
