@@ -1,12 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors');  // Adicionado
+const cors = require('cors');
 const mysql = require('mysql2/promise');
 const multer = require('multer');
+
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
-const https = require('https');
-const fs = require('fs');
 
 const server = express();
 
@@ -28,24 +27,13 @@ server.use((req, res, next) => {
 
 let connection;
 
-const {
-    MYSQLDATABASE,
-    MYSQLHOST,
-    MYSQLPASSWORD,
-    MYSQLPORT,
-    MYSQLUSER,
-    MYSQL_PRIVATE_URL,
-    MYSQL_ROOT_PASSWORD,
-    MYSQL_URL
-} = process.env;
-
 async function createConnection() {
     connection = await mysql.createConnection({
-        host: MYSQLHOST,
-        user: MYSQLUSER,
-        password: MYSQLPASSWORD,
-        port: MYSQLPORT,
-        database: MYSQLDATABASE,
+        host: process.env.MYSQLHOST,
+        user: process.env.MYSQLUSER,
+        password: process.env.MYSQLPASSWORD,
+        port: process.env.MYSQLPORT,
+        database: process.env.MYSQLDATABASE,
     });
 
     console.log('Conexão com o banco de dados bem-sucedida');
@@ -82,7 +70,8 @@ async function startServer() {
         }
     });
 
-    server.post('/upload', upload.single('foto'), (req, res) => {
+    // Adicionando configuração CORS específica para o método post
+    server.post('/upload', cors(corsOptions), upload.single('foto'), (req, res) => {
         const { nome, subnome, preco, subpreco } = req.body;
         const foto = req.file;
 
