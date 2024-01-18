@@ -39,18 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const valorSubPreco = document.getElementById('subpreco').value;
         const valorFoto = document.getElementById('foto').files[0]; // Obtém o arquivo de imagem
 
-         // Verificar se os campos de preço contêm apenas números
-    if (!validarNumerico(valorPreco) || !validarNumerico(valorSubPreco)) {
-        alert('Por favor, insira apenas números nos campos de preço.');
-        return;
-    }
-
-    // Verificar se os campos de título contêm apenas letras
-    if (!validarAlfabético(valorTitulo) || !validarAlfabético(valorSubTitulo)) {
-        alert('Por favor, insira apenas letras nos campos de título.');
-        return;
-    }
-
         if (valorTitulo && valorSubTitulo && valorPreco && valorSubPreco && valorFoto) {
             const formData = new FormData();
 
@@ -62,7 +50,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             fetch('https://agulha-e-linha-backend-production.up.railway.app/upload', {
                 method: 'POST',
-                body: formData // Envie o FormData que inclui a imagem
+                body: formData,
+                mode: 'no-cors', 
             })
                 .then(response => {
                     if (response.ok) {
@@ -157,14 +146,4 @@ function irFacebook() {
 function irInstagram() {
     window.location.href = 'https://www.instagram.com/agulha_e_linha/';
 
-}
-
-// Função para validar se a string contém apenas números
-function validarNumerico(valor) {
-    return /^\d+$/.test(valor);
-}
-
-// Função para validar se a string contém apenas letras
-function validarAlfabético(valor) {
-    return /^[a-zA-Z]+$/.test(valor);
 }

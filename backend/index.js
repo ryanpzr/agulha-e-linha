@@ -3,21 +3,23 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mysql = require('mysql2/promise');
 const multer = require('multer');
+
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
-const https = require('https');
-const fs = require('fs');
-
-require('dotenv').config();
-
 const server = express();
-server.use(cors());
+
+const corsOptions = {
+    origin: 'https://agulha-e-linha.up.railway.app',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+};
+
+server.use(cors(corsOptions));
 server.use(bodyParser.json());
 server.use(express.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use((req, res, next) => {
     res.setHeader('Content-Security-Policy', "default-src 'none'; style-src 'self' fonts.googleapis.com");
-    res.setHeader('Access-Control-Allow-Origin', '*');
     next();
 });
 
@@ -25,7 +27,7 @@ let pool;
 
 async function createPool() {
     pool = mysql.createPool({
-        connectionLimit: 10, // Número máximo de conexões simultâneas no pool
+        connectionLimit: 20,
         host: process.env.MYSQLHOST,
         user: process.env.MYSQLUSER,
         password: process.env.MYSQLPASSWORD,
