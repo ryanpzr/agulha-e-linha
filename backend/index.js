@@ -39,21 +39,29 @@ async function createPool() {
 }
 
 server.get('/get', async (req, res) => {
+    let connection;
+
     try {
         const [rows] = await pool.execute('SELECT * FROM bonecas');
-        return res.json(rows);
+        res.json(rows);
     } catch (err) {
         console.error('Erro ao buscar bonecas no banco de dados:', err);
-        return res.status(500).json({ error: 'Erro ao buscar bonecas' });
+        res.status(500).json({ error: 'Erro ao buscar bonecas' });
+    } finally {
+        if (connection) {
+            connection.release(); // Certifique-se de liberar a conexão de volta ao pool
+        }
     }
 });
 
 server.delete('/delete', async (req, res) => {
     const { nome } = req.body;
-    const sql = 'DELETE FROM bonecas WHERE nome = ?';
+    const sql = 'DELETE FROM bonecas WHERE nome = ';
+    let connection;
 
     try {
-        const [result] = await pool.execute(sql, [nome]);
+        connection = await pool.getConnection();
+        const [result] = await connection.execute(sql, [nome]);
 
         if (result.affectedRows === 0) {
             res.status(404).json({ message: 'Boneca não encontrada' });
@@ -63,6 +71,10 @@ server.delete('/delete', async (req, res) => {
     } catch (err) {
         console.error('Erro ao excluir a boneca:', err);
         res.status(500).json({ error: 'Erro interno do servidor' });
+    } finally {
+        if (connection) {
+            connection.release(); // Certifique-se de liberar a conexão de volta ao pool
+        }
     }
 });
 
@@ -76,24 +88,38 @@ server.post('/upload', upload.single('foto'), (req, res) => {
 
     const sql = 'INSERT INTO bonecas (nome, subnome, preco, subpreco, foto) VALUES (?, ?, ?, ?, ?)';
     const values = [nome, subnome, preco, subpreco, foto.buffer];
+    let connection;
 
-    pool.query(sql, values, (err, result) => {
-        if (err) {
-            console.error('Erro ao inserir boneca no banco de dados:', err);
-            return res.status(500).json({ error: 'Erro ao salvar a boneca' });
-        } else {
-            console.log('Boneca inserida com sucesso no banco de dados');
-            const novaBoneca = { nome, subnome, preco, subpreco, foto: foto.buffer, id: result.insertId };
-            return res.json(novaBoneca);
+    try {
+        connection = await pool.getConnection();
+        connection.query(sql, values, (err, result) => {
+            if (err) {
+                console.error('Erro ao inserir boneca no banco de dados:', err);
+                return res.status(500).json({ error: 'Erro ao salvar a boneca' });
+            } else {
+                console.log('Boneca inserida com sucesso no banco de dados');
+                const novaBoneca = { nome, subnome, preco, subpreco, foto: foto.buffer, id: result.insertId };
+                return res.json(novaBoneca);
+            }
+        });
+    } catch (err) {
+        console.error('Erro ao inserir boneca no banco de dados:', err);
+        res.status(500).json({ error: 'Erro ao salvar a boneca' });
+    } finally {
+        if (connection) {
+            connection.release(); // Certifique-se de liberar a conexão de volta ao pool
         }
-    });
+    }
 });
 
 server.get('/imagem/:nome', async (req, res) => {
     const { nome } = req.params;
     const sql = 'SELECT foto FROM bonecas WHERE nome = ?';
+    let connection;
+
     try {
-        const [rows] = await pool.execute(sql, [nome]);
+        connection = await pool.getConnection();
+        const [rows] = await connection.execute(sql, [nome]);
 
         if (rows.length === 0) {
             return res.status(404).json({ message: 'Boneca não encontrada' });
@@ -106,6 +132,10 @@ server.get('/imagem/:nome', async (req, res) => {
     } catch (err) {
         console.error('Erro ao buscar imagem no banco de dados:', err);
         return res.status(500).json({ error: 'Erro ao buscar imagem' });
+    } finally {
+        if (connection) {
+            connection.release(); // Certifique-se de liberar a conexão de volta ao pool
+        }
     }
 });
 
@@ -115,3 +145,4 @@ createPool().then(() => {
         console.log(`Servidor HTTPS está ouvindo na porta ${PORT}`);
     });
 });
+
