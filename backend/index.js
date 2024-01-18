@@ -32,6 +32,8 @@ async function createPool() {
         user: process.env.MYSQLUSER,
         password: process.env.MYSQLPASSWORD,
         database: process.env.MYSQLDATABASE,
+        port: process.env.MYSQLPORT,
+        connectTimeout: 30000,
     });
     console.log('Pool de conexões com o banco de dados criado com sucesso');
 }
