@@ -78,7 +78,7 @@ server.delete('/delete', async (req, res) => {
     }
 });
 
-server.post('/upload', upload.single('foto'), (req, res) => {
+server.post('/upload', upload.single('foto'), async (req, res) => {
     const { nome, subnome, preco, subpreco } = req.body;
     const foto = req.file;
 
@@ -92,16 +92,10 @@ server.post('/upload', upload.single('foto'), (req, res) => {
 
     try {
         connection = await pool.getConnection();
-        connection.query(sql, values, (err, result) => {
-            if (err) {
-                console.error('Erro ao inserir boneca no banco de dados:', err);
-                return res.status(500).json({ error: 'Erro ao salvar a boneca' });
-            } else {
-                console.log('Boneca inserida com sucesso no banco de dados');
-                const novaBoneca = { nome, subnome, preco, subpreco, foto: foto.buffer, id: result.insertId };
-                return res.json(novaBoneca);
-            }
-        });
+        await connection.query(sql, values);
+        console.log('Boneca inserida com sucesso no banco de dados');
+        const novaBoneca = { nome, subnome, preco, subpreco, foto: foto.buffer };
+        res.json(novaBoneca);
     } catch (err) {
         console.error('Erro ao inserir boneca no banco de dados:', err);
         res.status(500).json({ error: 'Erro ao salvar a boneca' });
