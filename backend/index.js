@@ -26,7 +26,7 @@ server.use((req, res, next) => {
 let pool;
 
 async function createPool() {
-    pool = mysql.createPool({
+    pool = await mysql.createPool({
         connectionLimit: 20,
         host: process.env.MYSQLHOST,
         user: process.env.MYSQLUSER,
@@ -51,7 +51,7 @@ server.delete('/delete', async (req, res) => {
     const sql = 'DELETE FROM bonecas WHERE nome = ?';
 
     try {
-        const [result] = await connection.execute(sql, [nome]);
+        const [result] = await pool.execute(sql, [nome]);
 
         if (result.affectedRows === 0) {
             res.status(404).json({ message: 'Boneca não encontrada' });
@@ -75,7 +75,7 @@ server.post('/upload', upload.single('foto'), (req, res) => {
     const sql = 'INSERT INTO bonecas (nome, subnome, preco, subpreco, foto) VALUES (?, ?, ?, ?, ?)';
     const values = [nome, subnome, preco, subpreco, foto.buffer];
 
-    connection.query(sql, values, (err, result) => {
+    pool.query(sql, values, (err, result) => {
         if (err) {
             console.error('Erro ao inserir boneca no banco de dados:', err);
             return res.status(500).json({ error: 'Erro ao salvar a boneca' });
@@ -91,7 +91,7 @@ server.get('/imagem/:nome', async (req, res) => {
     const { nome } = req.params;
     const sql = 'SELECT foto FROM bonecas WHERE nome = ?';
     try {
-        const [rows] = await connection.execute(sql, [nome]);
+        const [rows] = await pool.execute(sql, [nome]);
 
         if (rows.length === 0) {
             return res.status(404).json({ message: 'Boneca não encontrada' });
@@ -108,9 +108,8 @@ server.get('/imagem/:nome', async (req, res) => {
 });
 
 const PORT = 3000;
-server.listen(PORT, () => {
-    console.log(`Servidor HTTPS está ouvindo na porta ${PORT}`);
+createPool().then(() => {
+    server.listen(PORT, () => {
+        console.log(`Servidor HTTPS está ouvindo na porta ${PORT}`);
+    });
 });
-
-
-startServer();
