@@ -70,28 +70,27 @@ async function startServer() {
         }
     });
 
-    server.post('/upload', upload.single('foto'), (req, res) => {
+    server.post('/upload', upload.single('foto'), async (req, res) => {
         const { nome, subnome, preco, subpreco } = req.body;
         const foto = req.file;
-    
+
         if (!foto) {
             return res.status(400).json({ error: 'Nenhuma imagem enviada' });
         }
-    
+
         const sql = 'INSERT INTO bonecas (nome, subnome, preco, subpreco, foto) VALUES (?, ?, ?, ?, ?)';
         const values = [nome, subnome, preco, subpreco, foto.buffer];
-    
-        connection.query(sql, values, (err, result) => {
-            if (err) {
-                console.error('Erro ao inserir boneca no banco de dados:', err);
-                return res.status(500).json({ error: 'Erro ao salvar a boneca' });
-            } else {
-                console.log('Boneca inserida com sucesso no banco de dados');
-                const novaBoneca = { nome, subnome, preco, subpreco, foto: foto.buffer, id: result.insertId };
-                return res.json(novaBoneca);
-            }
-        });
-    });    
+
+        try {
+            const [result] = await connection.execute(sql, values);
+            console.log('Boneca inserida com sucesso no banco de dados');
+            const novaBoneca = { nome, subnome, preco, subpreco, foto: foto.buffer, id: result.insertId };
+            return res.json(novaBoneca);
+        } catch (err) {
+            console.error('Erro ao inserir boneca no banco de dados:', err);
+            return res.status(500).json({ error: 'Erro ao salvar a boneca' });
+        }
+    });
 
     server.get('/imagem/:nome', async (req, res) => {
         const { nome } = req.params;
