@@ -56,7 +56,7 @@ server.get('/get', async (req, res) => {
 
 server.delete('/delete', async (req, res) => {
     const { nome } = req.body;
-    const sql = 'DELETE FROM bonecas WHERE nome = ';
+    const sql = 'DELETE FROM bonecas WHERE nome = ?';
     let connection;
 
     try {
