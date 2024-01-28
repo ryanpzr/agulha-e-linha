@@ -41,16 +41,16 @@ async function startServer() {
 
     const storage = multer.diskStorage({
         destination: function (req, file, cb) {
-            cb(null, 'uploadsImagens/'); // Especifica o diretório onde as imagens serão armazenadas
+            cb(null, 'C:/Users/ryanp/agulha-e-linha/uploadsImagens/'); // Caminho completo para o diretório onde as imagens serão armazenadas
         },
         filename: function (req, file, cb) {
             // Define o nome do arquivo de imagem carregado
             cb(null, Date.now() + '-' + file.originalname);
         }
     });
-
+    
     const upload = multer({ storage: storage }).single('foto');
-
+    
     server.post('/upload', upload, async (req, res) => {
         const { nome, subnome, preco, subpreco } = req.body;
         const foto = req.file;
@@ -60,7 +60,7 @@ async function startServer() {
         }
     
         // Salvar apenas o caminho da imagem no banco de dados
-        const caminhoImagem = path.join('uploadsImagens/', foto.filename);
+        const caminhoImagem = 'C:/Users/ryanp/agulha-e-linha/uploadsImagens/' + foto.filename;
     
         const sql = 'INSERT INTO bonecas (nome, subnome, preco, subpreco, foto) VALUES (?, ?, ?, ?, ?)';
         const values = [nome, subnome, preco, subpreco, caminhoImagem];
@@ -74,7 +74,7 @@ async function startServer() {
             console.error('Erro ao inserir boneca no banco de dados:', err);
             return res.status(500).json({ error: 'Erro ao salvar a boneca' });
         }
-    });
+    });    
 
     server.get('/get', async (req, res) => {
         try {
