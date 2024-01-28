@@ -39,6 +39,7 @@ async function createConnection() {
 async function startServer() {
     await createConnection();
 
+    /*
     const storage = multer.diskStorage({
         destination: function (req, file, cb) {
             cb(null, 'uploadImagens/'); // Caminho completo para o diretório onde as imagens serão armazenadas
@@ -48,33 +49,34 @@ async function startServer() {
             cb(null, Date.now() + '-' + file.originalname);
         }
     });
+    */
     
-    const upload = multer({ storage: storage }).single('foto');
+    const upload = multer({dest: 'uploadImagens'}); // Ajuste o destino do upload para 'uploadImagens/'
     
-    server.post('/upload', upload, async (req, res) => {
-        const { nome, subnome, preco, subpreco } = req.body;
-        const foto = req.file;
-    
-        if (!foto) {
-            return res.status(400).json({ error: 'Nenhuma imagem enviada' });
-        }
-    
-        // Salvar apenas o caminho da imagem no banco de dados
-        const caminhoImagem = 'uploadImagens/' + foto.filename;
-    
-        const sql = 'INSERT INTO bonecas (nome, subnome, preco, subpreco, foto) VALUES (?, ?, ?, ?, ?)';
-        const values = [nome, subnome, preco, subpreco, caminhoImagem];
-    
-        try {
-            const [result] = await connection.execute(sql, values);
-            console.log('Boneca inserida com sucesso no banco de dados');
-            const novaBoneca = { nome, subnome, preco, subpreco, foto: caminhoImagem, id: result.insertId };
-            return res.json(novaBoneca);
-        } catch (err) {
-            console.error('Erro ao inserir boneca no banco de dados:', err);
-            return res.status(500).json({ error: 'Erro ao salvar a boneca' });
-        }
-    });    
+    server.post('/upload', upload.single('foto'), async (req, res) => {
+    const { nome, subnome, preco, subpreco } = req.body;
+    const foto = req.file;
+
+    if (!foto) {
+        return res.status(400).json({ error: 'Nenhuma imagem enviada' });
+    }
+
+    // Salvar apenas o caminho da imagem no banco de dados
+    const caminhoImagem = 'uploadImagens/' + foto.filename;
+
+    const sql = 'INSERT INTO bonecas (nome, subnome, preco, subpreco, foto) VALUES (?, ?, ?, ?, ?)';
+    const values = [nome, subnome, preco, subpreco, caminhoImagem];
+
+    try {
+        const [result] = await connection.execute(sql, values);
+        console.log('Boneca inserida com sucesso no banco de dados');
+        const novaBoneca = { nome, subnome, preco, subpreco, foto: caminhoImagem, id: result.insertId };
+        return res.json(novaBoneca);
+    } catch (err) {
+        console.error('Erro ao inserir boneca no banco de dados:', err);
+        return res.status(500).json({ error: 'Erro ao salvar a boneca' });
+    }
+    });
 
     server.get('/get', async (req, res) => {
         try {
