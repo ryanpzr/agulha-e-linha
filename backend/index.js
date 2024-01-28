@@ -3,20 +3,17 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mysql = require('mysql2/promise');
 const multer = require('multer');
-
-const storage = multer.memoryStorage();
-const upload = multer({ storage: storage });
+const path = require('path');
 
 const server = express();
 
-// Configuração do CORS
 const corsOptions = {
     origin: 'https://agulha-e-linha.up.railway.app',  // Atualize com o seu domínio
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
 };
-server.use(cors(corsOptions));
 
+server.use(cors(corsOptions));
 server.use(bodyParser.json());
 server.use(express.json());
 server.use(bodyParser.urlencoded({ extended: true }));
@@ -41,6 +38,43 @@ async function createConnection() {
 
 async function startServer() {
     await createConnection();
+
+    const storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, 'uploadsImagens/'); // Especifica o diretório onde as imagens serão armazenadas
+        },
+        filename: function (req, file, cb) {
+            // Define o nome do arquivo de imagem carregado
+            cb(null, Date.now() + '-' + file.originalname);
+        }
+    });
+
+    const upload = multer({ storage: storage }).single('foto');
+
+    server.post('/upload', upload, async (req, res) => {
+        const { nome, subnome, preco, subpreco } = req.body;
+        const foto = req.file;
+    
+        if (!foto) {
+            return res.status(400).json({ error: 'Nenhuma imagem enviada' });
+        }
+    
+        // Salvar apenas o caminho da imagem no banco de dados
+        const caminhoImagem = path.join('uploadsImagens', foto.filename);
+    
+        const sql = 'INSERT INTO bonecas (nome, subnome, preco, subpreco, foto) VALUES (?, ?, ?, ?, ?)';
+        const values = [nome, subnome, preco, subpreco, caminhoImagem];
+    
+        try {
+            const [result] = await connection.execute(sql, values);
+            console.log('Boneca inserida com sucesso no banco de dados');
+            const novaBoneca = { nome, subnome, preco, subpreco, foto: caminhoImagem, id: result.insertId };
+            return res.json(novaBoneca);
+        } catch (err) {
+            console.error('Erro ao inserir boneca no banco de dados:', err);
+            return res.status(500).json({ error: 'Erro ao salvar a boneca' });
+        }
+    });
 
     server.get('/get', async (req, res) => {
         try {
@@ -67,28 +101,6 @@ async function startServer() {
         } catch (err) {
             console.error('Erro ao excluir a boneca:', err);
             res.status(500).json({ error: 'Erro interno do servidor' });
-        }
-    });
-
-    server.post('/upload', upload.single('foto'), async (req, res) => {
-        const { nome, subnome, preco, subpreco } = req.body;
-        const foto = req.file;
-
-        if (!foto) {
-            return res.status(400).json({ error: 'Nenhuma imagem enviada' });
-        }
-
-        const sql = 'INSERT INTO bonecas (nome, subnome, preco, subpreco, foto) VALUES (?, ?, ?, ?, ?)';
-        const values = [nome, subnome, preco, subpreco, foto.buffer];
-
-        try {
-            const [result] = await connection.execute(sql, values);
-            console.log('Boneca inserida com sucesso no banco de dados');
-            const novaBoneca = { nome, subnome, preco, subpreco, foto: foto.buffer, id: result.insertId };
-            return res.json(novaBoneca);
-        } catch (err) {
-            console.error('Erro ao inserir boneca no banco de dados:', err);
-            return res.status(500).json({ error: 'Erro ao salvar a boneca' });
         }
     });
 
