@@ -60,7 +60,7 @@ async function startServer() {
         }
     
         // Salvar apenas o caminho da imagem no banco de dados
-        const caminhoImagem = path.join('uploadsImagens', foto.filename);
+        const caminhoImagem = path.join('uploadsImagens/', foto.filename);
     
         const sql = 'INSERT INTO bonecas (nome, subnome, preco, subpreco, foto) VALUES (?, ?, ?, ?, ?)';
         const values = [nome, subnome, preco, subpreco, caminhoImagem];
@@ -125,7 +125,7 @@ async function startServer() {
     });
 
     const PORT = 3000;
-server.listen(PORT, () => {
+    server.listen(PORT, () => {
     console.log(`Servidor HTTPS está ouvindo na porta ${PORT}`);
 });
 
