@@ -49,31 +49,6 @@ async function startServer() {
         }
     });
 
-    server.get('/imagem/:nome', async (req, res) => {
-        const { nome } = req.params;
-        const sql = 'SELECT foto FROM bonecas WHERE nome = ?';
-        try {
-            const [rows] = await connection.execute(sql, [nome]);
-    
-            if (rows.length === 0) {
-                return res.status(404).json({ message: 'Boneca não encontrada' });
-            }
-    
-            const imagePath = rows[0].foto; // Caminho completo para a imagem fornecido pelo banco de dados
-    
-            // Verifica se o arquivo existe
-            if (fs.existsSync(imagePath)) {
-                // Envia o arquivo como resposta
-                res.sendFile(imagePath);
-            } else {
-                return res.status(404).json({ message: 'Imagem não encontrada' });
-            }
-        } catch (err) {
-            console.error('Erro ao buscar imagem no banco de dados:', err);
-            return res.status(500).json({ error: 'Erro ao buscar imagem' });
-        }
-    });    
-
     server.delete('/delete', async (req, res) => {
         const { nome } = req.body;
         const sql = 'DELETE FROM bonecas WHERE nome = ?';

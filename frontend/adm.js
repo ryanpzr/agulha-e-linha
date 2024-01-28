@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const valorSubTitulo = document.getElementById('subnome').value;
         const valorPreco = document.getElementById('preco').value;
         const valorSubPreco = document.getElementById('subpreco').value;
-        const valorFoto = document.getElementById('foto').files[0]; // Obtém o arquivo de imagem
+        const valorFoto = document.getElementById('foto').value;
 
         if (valorTitulo && valorSubTitulo && valorPreco && valorSubPreco && valorFoto) {
             const formData = new FormData();
@@ -83,11 +83,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const novoItem = document.createElement('div');
         novoItem.classList.add('cardContent');
 
-        // Use a URL dinâmica com base no nome da boneca
-        const imageUrl = `https://agulha-e-linha-backend-production.up.railway.app/imagem/${boneca.nome}`;
-
         novoItem.innerHTML = `
-            <img class="image" src="${imageUrl}" />
+            <img class="image" src="${boneca.foto}" />
             <h2>${boneca.nome}</h2>
             <p class="second-text-description">${boneca.subnome}</p>
             <p class="full-price">R$${boneca.preco},00</p>
@@ -102,11 +99,6 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault(); // Impede o envio padrão do formulário
 
         const nome = document.getElementById("nomeExcluir").value;
-
-        // Você pode adicionar alguma validação aqui para garantir que o campo nome não esteja vazio
-
-        // Aqui você pode enviar uma solicitação para o servidor para executar a exclusão
-        // Por exemplo, usando o fetch para enviar uma solicitação DELETE para a rota do servidor
 
         fetch('https://agulha-e-linha-backend-production.up.railway.app/delete', {
             method: "DELETE",
