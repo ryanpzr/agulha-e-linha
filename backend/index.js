@@ -49,24 +49,6 @@ async function startServer() {
         }
     });
 
-    server.delete('/delete', async (req, res) => {
-        const { nome } = req.body;
-        const sql = 'DELETE FROM bonecas WHERE nome = ?';
-
-        try {
-            const [result] = await connection.execute(sql, [nome]);
-
-            if (result.affectedRows === 0) {
-                res.status(404).json({ message: 'Boneca não encontrada' });
-            } else {
-                res.json({ message: 'Boneca excluída com sucesso' });
-            }
-        } catch (err) {
-            console.error('Erro ao excluir a boneca:', err);
-            res.status(500).json({ error: 'Erro interno do servidor' });
-        }
-    });
-
     const PORT = 3000;
     server.listen(PORT, () => {
     console.log(`Servidor HTTPS está ouvindo na porta ${PORT}`);

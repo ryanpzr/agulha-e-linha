@@ -27,57 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 
-    // Chame a função para carregar todas as bonecas após o carregamento da página
     carregarTodasBonecas();
-
-    addItemForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        const valorTitulo = document.getElementById('nome').value;
-        const valorSubTitulo = document.getElementById('subnome').value;
-        const valorPreco = document.getElementById('preco').value;
-        const valorSubPreco = document.getElementById('subpreco').value;
-        const valorFoto = document.getElementById('foto').value;
-
-        if (valorTitulo && valorSubTitulo && valorPreco && valorSubPreco && valorFoto) {
-            const formData = new FormData();
-
-            formData.append('nome', valorTitulo);
-            formData.append('subnome', valorSubTitulo);
-            formData.append('preco', valorPreco);
-            formData.append('subpreco', valorSubPreco);
-            formData.append('foto', valorFoto);
-
-            fetch('https://agulha-e-linha-backend-production.up.railway.app/upload', {
-                method: 'POST',
-                body: formData,
-                mode: 'no-cors', 
-            })
-                .then(response => {
-                    if (response.ok) {
-                        console.log('Os dados foram enviados ao servidor com sucesso!')
-                        return response.json();
-                    } else {
-                        throw new Error('Erro ao enviar dados para o servidor.');
-                    }
-                })
-                .then(data => {
-                    // Os dados foram enviados com sucesso, atualizar a interface.
-                    alert("Item adicionado com sucesso!")
-                    const novoItem = criarElementoBoneca(data);
-                    main.appendChild(novoItem);
-
-                    console.log('Dados enviados com sucesso:', data);
-                })
-                .catch(error => {
-                    console.error('Erro ao enviar dados:', error.message);
-                });
-
-            addItemForm.reset();
-        } else {
-            alert('Preencha todos os campos e selecione uma imagem antes de adicionar o item.');
-        }
-    });
 
     function criarElementoBoneca(boneca) {
         const novoItem = document.createElement('div');
@@ -94,34 +44,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         return novoItem;
     }
-
-    document.getElementById("deleteItemForm").addEventListener("submit", function (event) {
-        event.preventDefault(); // Impede o envio padrão do formulário
-
-        const nome = document.getElementById("nomeExcluir").value;
-
-        fetch('https://agulha-e-linha-backend-production.up.railway.app/delete', {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ nome }),
-        })
-            .then(response => {
-                if (response.ok) {
-                    alert("Item deletado com sucesso!");
-                    document.getElementById("nomeExcluir").value = "";
-                } else {
-                    alert("Erro ao deletar o item.");
-                    document.getElementById("nomeExcluir").value = "";
-                }
-            })
-            .catch(error => {
-                console.error("Erro ao fazer a solicitação:", error);
-                alert("Erro ao deletar o item.");
-                document.getElementById("nomeExcluir").value = "";
-            });
-    });
 
 });
 
