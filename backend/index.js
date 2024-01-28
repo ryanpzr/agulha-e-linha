@@ -88,6 +88,29 @@ async function startServer() {
         }
     });
 
+    const path = require('path');
+
+    server.get('/imagem/:nome', async (req, res) => {
+        const { nome } = req.params;
+        const sql = 'SELECT foto FROM bonecas WHERE nome = ?';
+        try {
+            const [rows] = await connection.execute(sql, [nome]);
+    
+            if (rows.length === 0) {
+                return res.status(404).json({ message: 'Boneca não encontrada' });
+            }
+    
+            const imagem = rows[0].foto;
+            const imagePath = path.join(__dirname, imagem); // Caminho completo para a imagem
+    
+            // Envie a imagem como um arquivo estático
+            res.sendFile(imagePath);
+        } catch (err) {
+            console.error('Erro ao buscar imagem no banco de dados:', err);
+            return res.status(500).json({ error: 'Erro ao buscar imagem' });
+        }
+    });    
+
     server.delete('/delete', async (req, res) => {
         const { nome } = req.body;
         const sql = 'DELETE FROM bonecas WHERE nome = ?';
@@ -103,26 +126,6 @@ async function startServer() {
         } catch (err) {
             console.error('Erro ao excluir a boneca:', err);
             res.status(500).json({ error: 'Erro interno do servidor' });
-        }
-    });
-
-    server.get('/imagem/:nome', async (req, res) => {
-        const { nome } = req.params;
-        const sql = 'SELECT foto FROM bonecas WHERE nome = ?';
-        try {
-            const [rows] = await connection.execute(sql, [nome]);
-
-            if (rows.length === 0) {
-                return res.status(404).json({ message: 'Boneca não encontrada' });
-            }
-
-            const imagem = rows[0].foto;
-
-            res.contentType('image/jpeg');
-            res.end(imagem);
-        } catch (err) {
-            console.error('Erro ao buscar imagem no banco de dados:', err);
-            return res.status(500).json({ error: 'Erro ao buscar imagem' });
         }
     });
 

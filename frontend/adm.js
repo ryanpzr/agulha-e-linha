@@ -84,10 +84,10 @@ document.addEventListener('DOMContentLoaded', function () {
         novoItem.classList.add('cardContent');
 
         // Use a URL dinâmica com base no nome da boneca
-        //const imageUrl = `https://agulha-e-linha-backend-production.up.railway.app/imagem/${boneca.nome}`;
+        const imageUrl = `https://agulha-e-linha-backend-production.up.railway.app/imagem/${boneca.nome}`;
 
         novoItem.innerHTML = `
-            <img class="image" src="${boneca.valorFoto}" />
+            <img class="image" src="${imageUrl}" />
             <h2>${boneca.nome}</h2>
             <p class="second-text-description">${boneca.subnome}</p>
             <p class="full-price">R$${boneca.preco},00</p>
