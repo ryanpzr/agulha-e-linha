@@ -2,13 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mysql = require('mysql2/promise');
-const multer = require('multer');
+const fs = require('fs');
 const path = require('path');
 
 const server = express();
 
 const corsOptions = {
-    origin: 'https://agulha-e-linha.up.railway.app',  // Atualize com o seu domínio
+    origin: 'https://agulha-e-linha.up.railway.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
 };
@@ -49,6 +49,31 @@ async function startServer() {
         }
     });
 
+    server.get('/imagem/:nome', async (req, res) => {
+        const { nome } = req.params;
+        const sql = 'SELECT foto FROM bonecas WHERE nome = ?';
+        try {
+            const [rows] = await connection.execute(sql, [nome]);
+
+            if (rows.length === 0) {
+                return res.status(404).json({ message: 'Boneca não encontrada' });
+            }
+
+            const imagePath = path.join(__dirname, rows[0].foto); // Caminho completo para a imagem
+
+            // Verifica se o arquivo existe
+            if (fs.existsSync(imagePath)) {
+                // Envia o arquivo como resposta
+                res.sendFile(imagePath);
+            } else {
+                return res.status(404).json({ message: 'Imagem não encontrada' });
+            }
+        } catch (err) {
+            console.error('Erro ao buscar imagem no banco de dados:', err);
+            return res.status(500).json({ error: 'Erro ao buscar imagem' });
+        }
+    });
+
     server.delete('/delete', async (req, res) => {
         const { nome } = req.body;
         const sql = 'DELETE FROM bonecas WHERE nome = ?';
@@ -64,26 +89,6 @@ async function startServer() {
         } catch (err) {
             console.error('Erro ao excluir a boneca:', err);
             res.status(500).json({ error: 'Erro interno do servidor' });
-        }
-    });
-
-    server.get('/imagem/:nome', async (req, res) => {
-        const { nome } = req.params;
-        const sql = 'SELECT foto FROM bonecas WHERE nome = ?';
-        try {
-            const [rows] = await connection.execute(sql, [nome]);
-
-            if (rows.length === 0) {
-                return res.status(404).json({ message: 'Boneca não encontrada' });
-            }
-
-            const imagem = rows[0].foto;
-
-            res.contentType('image/jpeg');
-            res.end(imagem);
-        } catch (err) {
-            console.error('Erro ao buscar imagem no banco de dados:', err);
-            return res.status(500).json({ error: 'Erro ao buscar imagem' });
         }
     });
 
