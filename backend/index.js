@@ -41,7 +41,7 @@ async function startServer() {
 
     const storage = multer.diskStorage({
         destination: function (req, file, cb) {
-            cb(null, 'uploadsImagens/'); // Especifica o diretório onde as imagens serão armazenadas
+            cb(null, 'agulha-e-linha\\uploadsImagens\\'); // Especifica o diretório onde as imagens serão armazenadas
         },
         filename: function (req, file, cb) {
             // Define o nome do arquivo de imagem carregado
@@ -60,7 +60,7 @@ async function startServer() {
         }
     
         // Salvar apenas o caminho da imagem no banco de dados
-        const caminhoImagem = path.join('uploadsImagens/', foto.filename);
+        const caminhoImagem = path.join('agulha-e-linha\\uploadsImagens\\', foto.filename);
     
         const sql = 'INSERT INTO bonecas (nome, subnome, preco, subpreco, foto) VALUES (?, ?, ?, ?, ?)';
         const values = [nome, subnome, preco, subpreco, caminhoImagem];
