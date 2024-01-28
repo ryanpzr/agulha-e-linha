@@ -1,4 +1,6 @@
-/* Dispositivos um pouco maiores, mas ainda pequenos (Pequenos Tablets e Smartphones + largos, 600px para cima) */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Libre+Baskerville&family=Qwitcher+Grypen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Libre+Baskerville&family=Qwitcher+Grypen:wght@700&display=swap');
+
 @media only screen and (max-width: 449px) {
 
     * {
@@ -148,30 +150,111 @@
 
     .text-store-left {
 
-        width: 20%;
-        height: auto;
+        width: 33%;
+        height: 10vh;
 
     }
 
     .text-store {
 
-        width: 60%;
-        text-align: center;
+        width: 33%;
+        height: 10vh;
 
     }
 
     .text-store h1 {
 
         font-size: 30px;
-        margin-top: 6px;
+        text-align: center;
+        margin: 7% 0%;
         color: white;
 
     }
 
     .text-store-right {
 
-        width: 20%;
-        height: auto;
+        width: 33%;
+        height: 10vh;
+
+    }
+
+
+    .about {
+
+        display: flex;
+        width: 100%;
+        flex-flow: row wrap;
+        height: 70vh;
+        justify-content: center;
+
+    }
+
+    .about-left {
+
+        width: 5%;
+
+    }
+
+    .about-center {
+
+
+        width: 90%;
+        text-align: center;
+
+    }
+
+    .cabecalho {
+
+        font-size: 30px;
+        margin-top: 10%;
+        color: white;
+        font-family: 'Dancing Script', cursive;
+
+    }
+
+    .texto {
+
+        font-size: 16px;
+        color: white;
+
+    }
+
+    .rodape {
+
+        font-size: 16px;
+        margin-top: 5%;
+        color: white;
+
+    }
+
+    .about-right {
+
+        width: 5%;
+
+    }
+
+    .irWhatsapp {
+
+        padding: 1% 6%;
+        margin-top: 0%;
+        border-radius: 5%;
+        border: 3px solid white;
+        background-color: rgba(167, 185, 153, 1);
+        font-size: 15px;
+        cursor: pointer;
+        color: white;
+
+    }
+
+    .irWhatsapp:hover {
+
+        padding: 1% 7%;
+        border-radius: 5%;
+        border: 3px solid white;
+        background-color: rgba(167, 185, 153, 1);
+        font-size: 15px;
+        cursor: pointer;
+        color: white;
 
     }
 
@@ -318,7 +401,7 @@
         width: 100%;
         flex-flow: row wrap;
         background-color: rgba(167, 185, 153, 1);
-        height: 7vh;
+        height: 6vh;
         justify-content: center;
         align-items: center;
 
@@ -340,7 +423,7 @@
 
     .text-store h1 {
 
-        font-size: 40px;
+        font-size: 30px;
         margin-top: 6px;
         color: white;
 
@@ -352,6 +435,89 @@
         height: auto;
 
     }
+
+
+
+
+    .about {
+
+        display: flex;
+        width: 100%;
+        flex-flow: row wrap;
+        height: 70vh;
+        justify-content: center;
+
+    }
+
+    .about-left {
+
+        width: 5%;
+
+    }
+
+    .about-center {
+
+
+        width: 90%;
+        text-align: center;
+
+    }
+
+    .cabecalho {
+
+        font-size: 33px;
+        margin-top: 5%;
+        color: white;
+        font-family: 'Dancing Script', cursive;
+
+    }
+
+    .texto {
+
+        font-size: 19px;
+        color: white;
+
+    }
+
+    .rodape {
+
+        font-size: 19px;
+        margin-top: 5%;
+        color: white;
+
+    }
+
+    .about-right {
+
+        width: 5%;
+
+    }
+
+    .irWhatsapp {
+
+        padding: 1% 6%;
+        margin-top: 0%;
+        border-radius: 5%;
+        border: 3px solid white;
+        background-color: rgba(167, 185, 153, 1);
+        font-size: 20px;
+        cursor: pointer;
+        color: white;
+
+    }
+
+    .irWhatsapp:hover {
+
+        padding: 1% 7%;
+        border-radius: 5%;
+        border: 3px solid white;
+        background-color: rgba(167, 185, 153, 1);
+        font-size: 20px;
+        cursor: pointer;
+        color: white;
+
+    }
+
 
 }
 
@@ -532,6 +698,87 @@
 
     }
 
+
+
+
+    .about {
+
+        display: flex;
+        width: 100%;
+        flex-flow: row wrap;
+        height: 70vh;
+        justify-content: center;
+
+    }
+
+    .about-left {
+
+        width: 5%;
+
+    }
+
+    .about-center {
+
+
+        width: 90%;
+        text-align: center;
+
+    }
+
+    .cabecalho {
+
+        font-size: 46px;
+        color: white;
+        font-family: 'Dancing Script', cursive;
+
+    }
+
+    .texto {
+
+        font-size: 25px;
+        color: white;
+
+    }
+
+    .rodape {
+
+        font-size: 25px;
+        color: white;
+
+    }
+
+    .about-right {
+
+        width: 5%;
+
+    }
+
+    .irWhatsapp {
+
+        padding: 1% 6%;
+        margin-top: 4%;
+        border-radius: 5%;
+        border: 3px solid white;
+        background-color: rgba(167, 185, 153, 1);
+        font-size: 20px;
+        cursor: pointer;
+        color: white;
+
+    }
+
+    .irWhatsapp:hover {
+
+        padding: 1% 7%;
+        border-radius: 5%;
+        border: 3px solid white;
+        background-color: rgba(167, 185, 153, 1);
+        font-size: 20px;
+        cursor: pointer;
+        color: white;
+
+    }
+
+
 }
 
 @media only screen and (min-width: 901px) and (max-width: 1250px) {
@@ -676,7 +923,7 @@
         width: 100%;
         flex-flow: row wrap;
         background-color: rgba(167, 185, 153, 1);
-        height: 10vh;
+        height: 7vh;
         justify-content: center;
         align-items: center;
 
@@ -698,7 +945,7 @@
 
     .text-store h1 {
 
-        font-size: 65px;
+        font-size: 45px;
         text-align: center;
         margin: 2% 0%;
         color: white;
@@ -712,145 +959,90 @@
 
     }
 
-    .icons-filter {
+
+    .about {
 
         display: flex;
         width: 100%;
-        height: 1vh;
         flex-flow: row wrap;
-        margin-bottom: 1%;
-        background-color: rgba(246, 202, 199, 1);
-        justify-content: end;
-        align-items: end;
+        height: 70vh;
+        justify-content: center;
 
     }
 
-    .filter.left {
+    .about-left {
 
-        width: 15%;
-        margin-left: 5%;
+        width: 20%;
 
     }
 
-    .filter-center {
+    .about-center {
+
+
         width: 60%;
         text-align: center;
-    }
-
-    .filter-center img {
-
-        display: none;
 
     }
 
-    .filter-right {
+    .cabecalho {
 
-        width: 10%;
-        margin-right: 3%;
+        font-size: 43px;
+        color: white;
+        font-family: 'Dancing Script', cursive;
+
+    }
+
+    .texto {
+
+        font-size: 25px;
+        color: white;
+
+    }
+
+    .rodape {
+
+        margin-top: 4%;
+        font-size: 25px;
+        color: white;
+
+    }
+
+    .about-right {
+
+        width: 20%;
+
+    }
+
+    .irWhatsapp {
+
+        padding: 1% 5%;
         margin-top: 1%;
-
-    }
-
-    .button-filter {
-
-        padding: 0px 0px;
-        text-align: end;
-        border: none;
-        cursor: pointer;
-        background-color: rgba(246, 202, 199, 1);
-
-    }
-
-    .button-filter img {
-
-        width: 50%;
-
-    }
-
-    .first-cards {
-
-        display: flex;
-        width: 100%;
-        height: 100vh;
-        flex-flow: row wrap;
-        background-color: rgba(246, 202, 199, 1);
-        margin-top: 0%;
-        justify-content: center;
-        align-items: center;
-
-    }
-
-    .cardContent {
-
-        display: inline;
-        width: 22vw;
-        line-height: 0.01;
-        text-align: center;
-        margin-top: 3%;
-        margin-bottom: 5%;
-    }
-
-    .divisao {}
-
-    .image {
-
-        width: 90%;
-
-    }
-
-    .cardContent h2 {
-
-        text-align: center;
-        font-size: 30px;
-        color: white;
-
-    }
-
-    .second-text-description {
-
-        text-align: center;
-        font-size: 10px;
-        opacity: 0.7;
-        margin-bottom: 0%;
-
-    }
-
-
-    .full-price {
-        text-align: center;
-        color: white;
-        font-size: 30px;
-        margin-bottom: 3vh;
-
-    }
-
-    .parceled-price {
-
-        text-align: center;
-        margin-bottom: 2vh;
-        font-size: 18px;
-
-    }
-
-    .buttom-cards {
-
-        float: center;
+        border-radius: 5%;
+        border: 3px solid white;
         background-color: rgba(167, 185, 153, 1);
-        width: 80%;
-        padding: 0px 0%;
+        font-size: 20px;
         cursor: pointer;
+        color: white;
 
     }
 
-    .buttom-cards img {
+    .irWhatsapp:hover {
 
-        width: 10%;
+        padding: 1% 6%;
+        border-radius: 5%;
+        border: 3px solid white;
+        background-color: rgba(167, 185, 153, 1);
+        font-size: 20px;
+        cursor: pointer;
+        color: white;
 
     }
 
 }
 
 @media only screen and (min-width: 1251px) {
+
+
 
     * {
 
@@ -1014,12 +1206,10 @@
 
     .text-store h1 {
 
-            font-size: 65px;
-            text-align: center;
-            margin: 0% 0%;
-            color: white;
-    
-        
+        font-size: 65px;
+        text-align: center;
+        margin: 0% 0%;
+        color: white;
 
     }
 
@@ -1030,139 +1220,81 @@
 
     }
 
-    .icons-filter {
+    .about {
 
         display: flex;
         width: 100%;
-        height: 1vh;
         flex-flow: row wrap;
-        margin-bottom: 1%;
-        background-color: rgba(246, 202, 199, 1);
-        justify-content: end;
-        align-items: end;
+        height: 70vh;
+        justify-content: center;
 
     }
 
-    .filter.left {
+    .about-left {
 
-        width: 15%;
-        margin-left: 5%;
+        width: 20%;
 
     }
 
-    .filter-center {
+    .about-center {
+
+
         width: 60%;
         text-align: center;
-    }
-
-    .filter-center img {
-
-        display: none;
 
     }
 
-    .filter-right {
+    .cabecalho {
 
-        width: 10%;
-        margin-right: 3%;
-        margin-top: 1%;
-
-    }
-
-    .button-filter {
-
-        padding: 0px 0px;
-        text-align: end;
-        border: none;
-        cursor: pointer;
-        background-color: rgba(246, 202, 199, 1);
+        font-size: 50px;
+        color: white;
+        font-family: 'Dancing Script', cursive;
 
     }
 
-    .button-filter img {
+    .texto {
 
-        width: 50%;
-
-    }
-
-    .first-cards {
-
-        display: flex;
-        width: 100%;
-        height: 100vh;
-        flex-flow: row wrap;
-        background-color: rgba(246, 202, 199, 1);
-        margin-top: 0%;
-        justify-content: center;
-        align-items: center;
+        font-size: 25px;
+        color: white;
 
     }
 
-    .cardContent {
+    .rodape {
 
-        display: inline;
-        width: 18vw;
-        line-height: 0.01;
-        text-align: center;
         margin-top: 3%;
-        margin-bottom: 5%;
-    }
-
-    .divisao {}
-
-    .image {
-
-        width: 90%;
-
-    }
-
-    .cardContent h2 {
-
-        text-align: center;
-        font-size: 30px;
+        font-size: 25px;
         color: white;
 
     }
 
-    .second-text-description {
+    .about-right {
 
-        text-align: center;
-        font-size: 10px;
-        opacity: 0.7;
-        margin-bottom: 0%;
+        width: 20%;
 
     }
 
+    .irWhatsapp {
 
-    .full-price {
-        text-align: center;
-        color: white;
-        font-size: 30px;
-        margin-bottom: 3vh;
-
-    }
-
-    .parceled-price {
-
-        text-align: center;
-        margin-bottom: 2vh;
-        font-size: 18px;
-
-    }
-
-    .buttom-cards {
-
-        float: center;
+        padding: 1% 5%;
+        margin-top: 1%;
+        border-radius: 5%;
+        border: 3px solid white;
         background-color: rgba(167, 185, 153, 1);
-        width: 80%;
-        padding: 0px 0%;
+        font-size: 20px;
         cursor: pointer;
+        color: white;
 
     }
 
-    .buttom-cards img {
+    .irWhatsapp:hover {
 
-        width: 10%;
+        padding: 1% 6%;
+        border-radius: 5%;
+        border: 3px solid white;
+        background-color: rgba(167, 185, 153, 1);
+        font-size: 20px;
+        cursor: pointer;
+        color: white;
 
     }
 

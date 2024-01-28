@@ -125,9 +125,10 @@ async function startServer() {
     });
 
     const PORT = 3000;
-    server.listen(PORT, () => {
-        console.log(`Servidor HTTPS está ouvindo na porta ${PORT}`);
-    });
+server.listen(PORT, () => {
+    console.log(`Servidor HTTPS está ouvindo na porta ${PORT}`);
+});
+
 }
 
 startServer();
