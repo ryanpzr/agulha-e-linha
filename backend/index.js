@@ -4,7 +4,6 @@ const cors = require('cors');
 const mysql = require('mysql2/promise');
 const multer = require('multer');
 const path = require('path');
-
 const server = express();
 
 const corsOptions = {
@@ -51,7 +50,7 @@ async function startServer() {
     });
     */
     
-    const upload = multer({dest: 'uploadImagens'}); // Ajuste o destino do upload para 'uploadImagens/'
+    const upload = multer({dest: 'uploadImagens/'}); // Ajuste o destino do upload para 'uploadImagens/'
     
     server.post('/upload', upload.single('foto'), async (req, res) => {
     const { nome, subnome, preco, subpreco } = req.body;
@@ -87,8 +86,6 @@ async function startServer() {
             return res.status(500).json({ error: 'Erro ao buscar bonecas' });
         }
     });
-
-    const path = require('path');
 
     server.get('/imagem/:nome', async (req, res) => {
         const { nome } = req.params;
