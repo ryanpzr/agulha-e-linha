@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mysql = require('mysql2/promise');
-const fs = require('fs');
+const fs = require('fs').promises;
 const path = require('path');
 
 const server = express();
@@ -25,15 +25,19 @@ server.use((req, res, next) => {
 let connection;
 
 async function createConnection() {
-    connection = await mysql.createConnection({
-        host: process.env.MYSQLHOST,
-        user: process.env.MYSQLUSER,
-        password: process.env.MYSQLPASSWORD,
-        port: process.env.MYSQLPORT,
-        database: process.env.MYSQLDATABASE,
-    });
-
-    console.log('Conexão com o banco de dados bem-sucedida');
+    try {
+        connection = await mysql.createConnection({
+            host: process.env.MYSQLHOST,
+            user: process.env.MYSQLUSER,
+            password: process.env.MYSQLPASSWORD,
+            port: process.env.MYSQLPORT,
+            database: process.env.MYSQLDATABASE,
+        });
+        console.log('Conexão com o banco de dados bem-sucedida');
+    } catch (error) {
+        console.error('Erro ao conectar ao banco de dados:', error);
+        process.exit(1); // Encerra o processo em caso de falha na conexão
+    }
 }
 
 async function startServer() {
@@ -51,9 +55,8 @@ async function startServer() {
 
     const PORT = 3000;
     server.listen(PORT, () => {
-    console.log(`Servidor HTTPS está ouvindo na porta ${PORT}`);
-});
-
+        console.log(`Servidor HTTPS está ouvindo na porta ${PORT}`);
+    });
 }
 
 startServer();
