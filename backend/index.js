@@ -2,9 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mysql = require('mysql2/promise');
-const fs = require('fs').promises;
-const path = require('path');
+const multer = require('multer');
 
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 const server = express();
 
 const corsOptions = {
@@ -22,41 +23,40 @@ server.use((req, res, next) => {
     next();
 });
 
-let connection;
+let pool;
 
-async function createConnection() {
-    try {
-        connection = await mysql.createConnection({
-            host: process.env.MYSQLHOST,
-            user: process.env.MYSQLUSER,
-            password: process.env.MYSQLPASSWORD,
-            port: process.env.MYSQLPORT,
-            database: process.env.MYSQLDATABASE,
-        });
-        console.log('Conexão com o banco de dados bem-sucedida');
-    } catch (error) {
-        console.error('Erro ao conectar ao banco de dados:', error);
-        process.exit(1); // Encerra o processo em caso de falha na conexão
-    }
+async function createPool() {
+    pool = await mysql.createPool({
+        connectionLimit: 20,
+        host: process.env.MYSQLHOST,
+        user: process.env.MYSQLUSER,
+        password: process.env.MYSQLPASSWORD,
+        database: process.env.MYSQLDATABASE,
+        port: process.env.MYSQLPORT,
+        connectTimeout: 30000,
+    });
+    console.log('Pool de conexões com o banco de dados criado com sucesso');
 }
 
-async function startServer() {
-    await createConnection();
+server.get('/get', async (req, res) => {
+    let connection;
 
-    server.get('/get', async (req, res) => {
-        try {
-            const [rows] = await connection.execute('SELECT * FROM bonecas');
-            return res.json(rows);
-        } catch (err) {
-            console.error('Erro ao buscar bonecas no banco de dados:', err);
-            return res.status(500).json({ error: 'Erro ao buscar bonecas' });
+    try {
+        const [rows] = await pool.execute('SELECT * FROM bonecas');
+        res.json(rows);
+    } catch (err) {
+        console.error('Erro ao buscar bonecas no banco de dados:', err);
+        res.status(500).json({ error: 'Erro ao buscar bonecas' });
+    } finally {
+        if (connection) {
+            connection.release(); // Certifique-se de liberar a conexão de volta ao pool
         }
-    });
+    }
+});
 
-    const PORT = 3000;
+const PORT = 3000;
+createPool().then(() => {
     server.listen(PORT, () => {
         console.log(`Servidor HTTPS está ouvindo na porta ${PORT}`);
     });
-}
-
-startServer();
+});
