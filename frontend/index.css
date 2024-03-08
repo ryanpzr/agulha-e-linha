@@ -304,7 +304,7 @@
     .cardContent {
 
         display: block;
-        width: 42vw;
+        width: auto;
         height: auto;
         line-height: 0.1;
         text-align: center;
@@ -695,7 +695,7 @@
     .cardContent {
 
         display: inline;
-        width: 32vw;
+        width: auto;
         height: auto;
         line-height: 0.01;
         text-align: center;
