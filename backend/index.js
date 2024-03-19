@@ -49,7 +49,7 @@ server.get('/get', async (req, res) => {
         res.status(500).json({ error: 'Erro ao buscar bonecas' });
     } finally {
         if (connection) {
-            connection.release(); // Certifique-se de liberar a conexão de volta ao pool
+            connection.release();
         }
     }
 });
