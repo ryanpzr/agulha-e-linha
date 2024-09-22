@@ -22,7 +22,7 @@ São peças únicas e exclusivas feitas à mão!
 
 ## Screenshots
 <div style="display: flex;">
-  <img src="https://readmeryanpzr.s3.sa-east-1.amazonaws.com/Imagem+do+WhatsApp+de+2024-09-19+%C3%A0(s)+20.17.30_01833058.jpg" alt="Descrição da imagem" width="300"/>
+  <img src="https://readmeryanpzr.s3.sa-east-1.amazonaws.com/menu.jpg" alt="Descrição da imagem" width="300"/>
   <img src="https://readmeryanpzr.s3.sa-east-1.amazonaws.com/Imagem+do+WhatsApp+de+2024-09-19+%C3%A0(s)+20.17.32_75c5f1e6.jpg" alt="Descrição da imagem" width="300"/>
   <img src="https://readmeryanpzr.s3.sa-east-1.amazonaws.com/Imagem+do+WhatsApp+de+2024-09-19+%C3%A0(s)+20.17.32_e6e7f501.jpg" alt="Descrição da imagem" width="300"/>
 </div>
