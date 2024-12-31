@@ -21,10 +21,10 @@ São peças únicas e exclusivas feitas à mão!
 - [Node.js](https://nodejs.org/docs/latest/api/)
 
 ## Screenshots
-<div style="display: flex;">
-  <img src="https://readmeryanpzr.s3.sa-east-1.amazonaws.com/Agulha%26Linha_Menu.jpg" alt="Descrição da imagem" width="300"/>
-  <img src="https://readmeryanpzr.s3.sa-east-1.amazonaws.com/Imagem+do+WhatsApp+de+2024-09-19+%C3%A0(s)+20.17.32_75c5f1e6.jpg" alt="Descrição da imagem" width="300"/>
-  <img src="https://readmeryanpzr.s3.sa-east-1.amazonaws.com/Imagem+do+WhatsApp+de+2024-09-19+%C3%A0(s)+20.17.32_e6e7f501.jpg" alt="Descrição da imagem" width="300"/>
+<div style="display: flex; height: 60px;">
+    <img src="https://readmeryanpzr.s3.sa-east-1.amazonaws.com/imagem-01.jpg" alt="Descrição da imagem" style="height: 60vh; width: auto;"/>
+  <img src="https://readmeryanpzr.s3.sa-east-1.amazonaws.com/imagem-02.jpg" alt="Descrição da imagem" style="height: 60vh; width: auto;"/>
+  <img src="https://readmeryanpzr.s3.sa-east-1.amazonaws.com/imagem-03.jpg" alt="Descrição da imagem" style="height: 60vh; width: auto;"/>
 </div>
 
 ## Considerações
