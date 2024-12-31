@@ -152,7 +152,6 @@
         width: 100%;
         flex-flow: row wrap;
         background-color: rgba(167, 185, 153, 1);
-        height: 6vh;
         justify-content: center;
         align-items: center;
 
@@ -160,30 +159,26 @@
 
     .text-store-left {
 
-        width: 20%;
-        height: auto;
+        width: 33vw;
 
     }
 
     .text-store {
-
-        width: 60%;
-        text-align: center;
-
+        width: 33vw;
     }
 
     .text-store h1 {
 
         font-size: 30px;
-        margin-top: 6px;
+        text-align: center;
+        margin: 2% 0%;
         color: white;
 
     }
 
     .text-store-right {
 
-        width: 20%;
-        height: auto;
+        width: 33vw;
 
     }
 
@@ -540,7 +535,6 @@
         width: 100%;
         flex-flow: row wrap;
         background-color: rgba(167, 185, 153, 1);
-        height: 6.5vh;
         justify-content: center;
         align-items: center;
 
@@ -548,15 +542,13 @@
 
     .text-store-left {
 
-        width: 33%;
-        height: 10vh;
+        width: 33vw;
 
     }
 
     .text-store {
 
-        width: 33%;
-        height: 10vh;
+        width: 33vw;
 
     }
 
@@ -571,8 +563,7 @@
 
     .text-store-right {
 
-        width: 33%;
-        height: 10vh;
+        width: 33vw;
 
     }
 
@@ -924,7 +915,6 @@
         width: 100%;
         flex-flow: row wrap;
         background-color: rgba(167, 185, 153, 1);
-        height: 6vh;
         justify-content: center;
         align-items: center;
 
@@ -932,15 +922,13 @@
 
     .text-store-left {
 
-        width: 33%;
-        height: 10vh;
+        width: 33vw;
 
     }
 
     .text-store {
 
-        width: 33%;
-        height: 10vh;
+        width: 33vw;
 
     }
 
@@ -955,8 +943,7 @@
 
     .text-store-right {
 
-        width: 33%;
-        height: 10vh;
+        width: 33vw;
 
     }
 
@@ -1309,7 +1296,6 @@
         width: 100%;
         flex-flow: row wrap;
         background-color: rgba(167, 185, 153, 1);
-        height: 6vh;
         justify-content: center;
         align-items: center;
 
@@ -1317,15 +1303,13 @@
 
     .text-store-left {
 
-        width: 33%;
-        height: 10vh;
+        width: 33vw;
 
     }
 
     .text-store {
 
-        width: 33%;
-        height: 10vh;
+        width: 33vw;
 
     }
 
@@ -1340,8 +1324,7 @@
 
     .text-store-right {
 
-        width: 33%;
-        height: 10vh;
+        width: 33vw;
 
     }
 
@@ -1695,7 +1678,6 @@
         width: 100%;
         flex-flow: row wrap;
         background-color: rgba(167, 185, 153, 1);
-        height: 10vh;
         justify-content: center;
         align-items: center;
 
@@ -1703,21 +1685,19 @@
 
     .text-store-left {
 
-        width: 33%;
-        height: 10vh;
+        width: 33vw;
 
     }
 
     .text-store {
 
-        width: 33%;
-        height: 10vh;
+        width: 33vw;
 
     }
 
     .text-store h1 {
 
-        font-size: 65px;
+        font-size: 45px;
         text-align: center;
         margin: 0% 0%;
         color: white;
@@ -1726,8 +1706,7 @@
 
     .text-store-right {
 
-        width: 33%;
-        height: 10vh;
+        width: 33vw;
 
     }
 
